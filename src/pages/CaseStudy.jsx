@@ -29,7 +29,7 @@ export default function CaseStudy() {
         <Link to="/#work" className="case__back"><Arrow left /> Back to work</Link>
 
         <span className="case__client">{data.client}</span>
-        <h1 className="display case__title">{data.title}</h1>
+        <h1 className="display case__articleTitle">{data.articleTitle}</h1>
         <p className="lead case__intro">{data.intro}</p>
 
         <dl className="case__meta">
@@ -42,7 +42,7 @@ export default function CaseStudy() {
         <div className="case__hero-media">
           <img
             src={data.cover}
-            alt={`${data.title} — cover`}
+            alt={`${data.articleTitle} — cover`}
             className={data.coverFit === 'contain' ? 'fit-contain' : 'fit-cover'}
           />
         </div>

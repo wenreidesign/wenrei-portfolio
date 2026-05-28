@@ -1,5 +1,4 @@
-import { Isotype } from './Logo.jsx'
-
+import logoWhite from '../assets/logo-wenrei-white.svg?url'
 const Arrow = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
     <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -21,8 +20,12 @@ export default function Footer() {
 
         <div className="footer__grid">
           <div className="footer__brand">
-            <span style={{ color: 'var(--white)', display: 'inline-flex' }}>
-              <Isotype size={30} />
+            <span style={{ display: 'inline-flex' }}>
+              <img
+                src={logoWhite}
+                alt="WENREI DESIGN"
+                className="footer__logo"
+              />
             </span>
             <p className="footer__tag">
               Designing clarity. Building reality. Product design that closes the gap between
@@ -36,11 +39,12 @@ export default function Footer() {
               <a href="/#work">Work</a>
               <a href="/#about">About</a>
               <a href="mailto:wenreidesign@gmail.com">Contact</a>
-            </div>
+           </div>
             <div className="footer__col">
               <h4>Elsewhere</h4>
               <a href="https://www.linkedin.com/in/ramon-camacho-rojas" target="_blank" rel="noreferrer">LinkedIn</a>
-              <a href="https://github.com/4GeeksAcademy/petspot-sp-131" target="_blank" rel="noreferrer">GitHub</a>
+              <a href="https://github.com/wenreidesign" target="_blank" rel="noreferrer">GitHub</a>
+              <a href="https://www.instagram.com/wcaginaction?igsh=M2twaWdwZWY1MDFo&utm_source=qr" target="_blank" rel="noreferrer">Instagram</a>
             </div>
           </div>
         </div>

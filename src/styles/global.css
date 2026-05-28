@@ -77,10 +77,10 @@ button {
   background: none;
 }
 
-::selection {
-  background: var(--fuchsia);
-  color: var(--white);
-}
+/* ::selection {
+  background: rgba(254, 53, 170, 0.22);
+  color: var(--black);
+} */
 
 /* Accessibility: visible focus everywhere (this is the brand's flag) */
 :focus-visible {
@@ -140,33 +140,57 @@ button {
 }
 
 /* ---------- Typographic scale ---------- */
+
 .display {
+  margin-top: 40px;
   font-weight: 800;
-  line-height: 0.98;
-  letter-spacing: -0.04em;
-  font-size: clamp(2.6rem, 8vw, 6.2rem);
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  font-size: 72px;
 }
 
 .h2 {
   font-weight: 800;
-  line-height: 1.04;
-  letter-spacing: -0.03em;
-  font-size: clamp(1.9rem, 4.5vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: -0.045em;
+  font-size: 64px;
 }
 
 .h3 {
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+  font-weight: 750;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  font-size: 28px;
 }
 
 .lead {
-  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
-  line-height: 1.5;
+  margin-top: 24px;
+  font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+  line-height: 1.45;
   font-weight: 400;
   color: var(--black-80);
   letter-spacing: -0.015em;
+}
+
+.body-text {
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--black-80);
+  max-width: 100%;
+}
+
+.small-text {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--ink-60);
+}
+
+.caption {
+  font-size: 0.78rem;
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .accent {

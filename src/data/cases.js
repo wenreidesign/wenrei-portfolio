@@ -8,20 +8,20 @@ export const cases = [
     cover: cupraBooking,
     coverFit: 'contain',
     client: 'SEAT · CUPRA',
-    title: 'Booking a workshop visit without the friction',
+    cardTitle: 'Drivers had only one way to book a service: the phone',
+    articleTitle: 'Booking a car service used to mean picking up the phone.',
     summary:
-      'Designed the end-to-end “Book an Appointment” flow for CUPRA service centers — turning a multi-step task into something a driver finishes in one sitting.',
-    tags: ['UX Design', 'Design System', 'Front-end criteria'],
-    metric: { value: '+35%', label: 'online appointments' },
+      'How I designed the first digital way to book a car service for SEAT and CUPRA, now live in 47 countries.',
+    tags: ['UX Research', 'UI Design', 'Design System', 'Prototyping'],
     meta: {
       role: 'Product Designer — SEAT & CUPRA web',
-      team: 'PM, front-end engineers, brand team',
-      timeline: '2022 – 2023',
+      team: 'SEAT Web & Private Area',
+      timeline: '6–9 months',
       scope: 'Deployed across 47 countries',
       tools: 'Figma, Design System, usability testing',
     },
     intro:
-      'CUPRA owners could book a workshop visit online, but most of them gave up halfway. The flow asked for everything at once, the available services were unclear, and people weren’t sure what they were committing to. The booking existed — it just wasn’t finishing.',
+      'For SEAT and CUPRA drivers, scheduling maintenance meant calling the workshop in a world where everything else already happened online. I designed the digital flow that changed that.',
     sections: [
       {
         kind: 'text',
@@ -71,11 +71,11 @@ export const cases = [
     cover: cupraFaqs,
     coverFit: 'cover',
     client: 'SEAT · CUPRA',
-    title: 'Rebuilding the FAQ so people actually find the answer',
+    cardTitle: "You had a question. Google couldn't take you to the answer.",
+    articleTitle: 'Booking a car service used to mean picking up the phone.',
     summary:
-      'Redesigned the information architecture of CUPRA’s FAQ section around real UX and SEO criteria — so answers surface fast for users and for search.',
-    tags: ['Information Architecture', 'UX', 'SEO'],
-    metric: { value: 'IA', label: 'rebuilt around user intent' },
+      "Restructuring SEAT and CUPRA's FAQs so every topic became findable in search and easy to navigate.",
+    tags: ['Information Architecture', 'UX', 'SEO', 'UX Design', 'Design System'],
     meta: {
       role: 'Product Designer — SEAT & CUPRA web',
       team: 'PM, content, SEO, engineering',
@@ -125,12 +125,12 @@ export const cases = [
     slug: 'gencat-public-procedure',
     cover: gencatCertificat,
     coverFit: 'cover',
-    client: 'Deloitte Digital · Public Administration',
-    title: 'Lowering the barrier to a public digital procedure',
+    client: 'Public Administration',
+    cardTitle: 'Citizens gave up before they could file a simple form',
+    articleTitle: 'Booking a car service used to mean picking up the phone.',
     summary:
-      'A heuristic evaluation and redesign of a government online procedure — reworking the entry point and information architecture to reduce the friction of getting started.',
-    tags: ['Heuristic Evaluation', 'IA', 'Accessibility'],
-    metric: { value: 'Gov', label: 'public-sector procedure' },
+      'Redesigning a government service so the identification maze stopped blocking people from even starting.',
+    tags: ['Heuristic Evaluation', 'Service design', 'Progressive disclosure', 'Prototyping'],
     meta: {
       role: 'Studio Senior — Deloitte Digital',
       team: 'Design studio, public-sector stakeholders',

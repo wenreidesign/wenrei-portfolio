@@ -12,7 +12,7 @@ export default function CaseCard({ data }) {
       <div className="case-card__media">
         <img
           src={data.cover}
-          alt={`${data.title} — ${data.client}`}
+          alt={`${data.cardTitle} — ${data.client}`}
           className={data.coverFit === 'contain' ? 'fit-contain' : 'fit-cover'}
           loading="lazy"
         />
@@ -25,7 +25,7 @@ export default function CaseCard({ data }) {
       </div>
       <div className="case-card__body">
         <span className="case-card__client">{data.client}</span>
-        <h3 className="h3">{data.title}</h3>
+        <h3 className="h3">{data.cardTitle}</h3>
         <p>{data.summary}</p>
         <div className="case-card__tags">
           {data.tags.map((t) => (
