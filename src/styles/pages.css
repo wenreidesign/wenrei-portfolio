@@ -5,7 +5,7 @@
 .hero {
   position: relative;
   padding-top: clamp(9rem, 16vw, 12rem);
-  padding-bottom: clamp(4rem, 8vw, 6rem);
+  padding-bottom: 128px;
   overflow: hidden;
 }
 
@@ -57,7 +57,8 @@
 ============================================ */
 
 .marquee {
-  margin-top: clamp(4rem, 7vw, 5.5rem);
+  margin-top: 112px;
+  margin-bottom: 112px;
   border-top: 1px solid var(--hairline);
   border-bottom: 1px solid var(--hairline);
   padding: 1.1rem 0;
@@ -76,7 +77,7 @@
 .marquee__track span {
   display: inline-flex;
   align-items: center;
-  gap: 3rem;
+  gap: 2.5rem;
   font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -102,8 +103,9 @@
 ============================================ */
 
 .methodology {
-  background: #F8FAFC;
-  padding: clamp(5rem, 8vw, 7rem) 0;
+  background: transparent;
+  padding: 0;
+  margin-top: 64px;
 }
 
 .methodology__cards {
@@ -126,15 +128,27 @@
   background: #fff;
 }
 
+.about__subheading {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.pillar {
+  display: flex;
+  flex-direction: column;
+}
+
 .pillar__num {
-  font-size: 0.78rem;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.14em;
   color: var(--fuchsia);
 }
 
 .pillar h3 {
-  margin: 0.8rem 0 0.5rem;
+  margin: 1.3rem 0 0.5rem;
 }
 
 .pillar p {
@@ -148,6 +162,7 @@
    ============================================ */
 .section {
   padding-top: clamp(4.5rem, 9vw, 8rem);
+  padding-bottom: clamp(4.5rem, 9vw, 8rem);
 }
 
 .section__head {
@@ -155,7 +170,8 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
+  
 }
 
 .section__head h2 {
@@ -166,6 +182,10 @@
   max-width: 100%;
 }
 
+.section__head--compact {
+  margin-bottom: 3rem;
+}
+
 /* ============================================
    WORK
 ============================================ */
@@ -174,14 +194,13 @@
   background: var(--black-80);
   color: var(--white);
   position: relative;
-  margin-top: 3rem;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   padding-top: clamp(6rem, 9vw, 8rem);
   padding-bottom: clamp(6rem, 9vw, 8rem);
 }
 
 #work .section__head {
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
 }
 
 #work .section__head p {
@@ -202,7 +221,7 @@
 .work__grid {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 4rem;
 }
 
 .case-card {
@@ -283,7 +302,7 @@
 }
 
 .case-card__body h3 {
-  margin: 1rem 0 1rem;
+  margin: 1.3rem 0 1rem;
   letter-spacing: -0.035em;
   color: var(--black);
 }
@@ -348,9 +367,9 @@
    ============================================ */
 .about {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: start;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 64px;
+  align-items: stretch;
 }
 
 .about__body p {
@@ -412,16 +431,34 @@
 }
 
 .about__image {
+  position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  min-height: 520px;
 }
 
 .about__image img {
+  position: absolute;
+  inset: 0;
+
   width: 100%;
   height: 100%;
+
   object-fit: cover;
-  object-position: center;
+  object-position: center 20%;
+}
+
+.about__quote {
+  margin-top: 2.5rem;
+
+  padding-left: 1.5rem;
+  border-left: 4px solid var(--fuchsia);
+
+  font-size: 1.75rem;
+  line-height: 1.5;
+  font-style: italic;
+  font-weight: 500;
+
+  color: var(--black);
 }
 
 /* Principles strip */
@@ -456,6 +493,144 @@
 .principle:nth-child(2) b,
 .principle:nth-child(4) b {
   color: var(--fuchsia);
+}
+
+/* ============================================
+   CIRCUIT SECTION
+   ============================================ */
+
+.circuit-section {
+  position: relative;
+  background: var(--black-80);
+  background-image: radial-gradient(circle, rgba(255,255,255,0.13) 1px, transparent 1px);
+  background-size: 36px 36px;
+  padding: clamp(5rem, 9vw, 7rem) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.circuit-header {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+/* H2 — main title */
+.circuit-title {
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  color: var(--white);
+}
+
+/* H3/H4 — subtitles */
+.circuit-subtitle {
+  font-size: clamp(0.92rem, 1.6vw, 1.2rem);
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  line-height: 1.5;
+  color: rgba(248, 250, 252, 0.55);
+  margin-top: 0.75rem;
+}
+
+.circuit-accent {
+  display: block;
+  color: var(--fuchsia);
+  font-weight: 600;
+}
+
+/* Diagram container — 900:360 ratio */
+.circuit-diagram {
+  position: relative;
+  width: 100%;
+  padding-bottom: 40%; /* 360/900 */
+}
+
+.circuit-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Node cards */
+.circuit-node {
+  position: absolute;
+  width: 21.11%;    /* 190/900 */
+  height: 23.61%;   /* 85/360 */
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: clamp(0.7rem, 1.2vw, 1.1rem) clamp(0.8rem, 1.4vw, 1.3rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  backdrop-filter: blur(4px);
+}
+
+.circuit-node__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-bottom: 0.15rem;
+}
+
+/* H2-level: Design / Systems / Accessibility / Code */
+.circuit-node__label {
+  font-size: clamp(1rem, 2.2vw, 1.65rem);
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+/* H4-level: subtitles */
+.circuit-node__sub {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(248, 250, 252, 0.42);
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
+/* PRODUCT — center node */
+.circuit-node--product {
+  width: 31.56%;    /* 284/900 */
+  height: 32.22%;   /* 116/360 */
+  background: var(--black-80);
+  border-color: rgba(254, 53, 170, 0.3);
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  gap: 0.15rem;
+  animation: product-pulse 2s ease-in-out infinite;
+}
+
+.circuit-node__star {
+  font-size: clamp(0.85rem, 1.4vw, 1.05rem);
+  color: var(--fuchsia);
+  line-height: 1;
+  margin-bottom: 0.1rem;
+}
+
+/* H1-level: PRODUCT */
+.circuit-node__label--product {
+  font-size: 32px;
+  letter-spacing: 0.06em;
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* Continuous pulse synced with 4 balls arriving every ~1s */
+@keyframes product-pulse {
+  0%, 100% { box-shadow: none; border-color: rgba(254, 53, 170, 0.28); }
+  50%      { box-shadow: 0 0 0 2px rgba(254, 53, 170, 0.48), 0 0 26px rgba(254, 53, 170, 0.2); border-color: rgba(254, 53, 170, 0.8); }
+}
+
+@media (max-width: 700px) {
+  .circuit-diagram {
+    display: none;
+  }
 }
 
 /* ============================================
@@ -675,6 +850,7 @@
 @media (max-width: 900px) {
   .about {
     grid-template-columns: 1fr;
+    gap: 48px;
   }
 
   .about__aside {
@@ -755,6 +931,10 @@
     margin-top: 0;
   }
 
+  .about__subheading {
+    font-size: 2.25rem;
+  }
+
 }
 
 @media (max-width: 700px) {
@@ -776,6 +956,15 @@
     font-size: 60px;
     line-height: 1.02;
     letter-spacing: -0.04em;
+  }
+
+  .about__image {
+    min-height: 420px;
+  }
+
+  .about__quote {
+    font-size: 1.35rem;
+    line-height: 1.4;
   }
 
   .hero__quote,

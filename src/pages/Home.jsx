@@ -4,6 +4,7 @@ import { cases } from '../data/cases.js'
 import CaseCard from '../components/CaseCard.jsx'
 import Reveal from '../components/Reveal.jsx'
 import SocialLinks from '../components/SocialLinks.jsx'
+import CircuitSection from '../components/CircuitSection.jsx'
 
 const Arrow = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
@@ -12,9 +13,9 @@ const Arrow = () => (
 )
 
 const pillars = [
-  { num: '01', name: 'Design', text: 'Turning complexity into clarity.' },
-  { num: '02', name: 'Systems', text: 'Scalable consistency through accessibility.' },
-  { num: '03', name: 'Code', text: 'Designing with implementation in mind.' },
+  { num: '01', name: 'Design', text: 'Understanding people and turning complex problems into intuitive experiences.' },
+  { num: '02', name: 'Systems', text: 'Order, consistency and scale through Design Systems, accessibility and patterns.' },
+  { num: '03', name: 'Code', text: 'Turning ideas into functional products that actually ship.' },
 ]
 
 const skills = [
@@ -25,10 +26,10 @@ const skills = [
 const rotatingWords = ['consistent', 'scalable', 'accessible', 'inclusive']
 
 const principles = [
-  { b: 'Clarity over complexity', s: 'If it doesn’t add, it goes.' },
-  { b: 'Accessibility by default', s: 'Empathy turned into technique.' },
-  { b: 'Systems create freedom', s: 'Order is what lets things scale.' },
-  { b: 'Build what matters', s: 'Design knowing how it ships.' },
+  { b: 'I turn empathy into clarity', s: 'Understanding people is where the work starts.' },
+  { b: 'Meeting requirements isn\'t designing well', s: 'Good design solves the problem, not just the brief.' },
+  { b: 'Systems before screens', s: 'I design for what scales, not what looks good once.' },
+  { b: 'Designed and built', s: 'I understand how my decisions land in code.' },
 ]
 
 const heroItem = {
@@ -154,34 +155,69 @@ export default function Home() {
           </Reveal>
 
           <div className="about">
+            <aside className="about__image">
+              <img src="/profile.jpg" alt="Portrait of Ramón Camacho" />
+            </aside>
             <Reveal className="about__body">
               <p>
-                I’m a Product Designer focused on web platforms, Design Systems and accessibility.
-                I work on complex B2C flows, turning friction into clear, usable experiences.
+                I'm a Product Designer focused on web apps and B2C platforms. I work with{' '}
+                <strong>Design Systems</strong> and apply <strong>accessibility</strong> and{' '}
+                <strong>front-end criteria</strong> in every decision I make.
               </p>
 
               <p>
-                My background in UX, visual design and front-end helps me bridge the gap between
-                design and development. I don’t throw designs over the wall — I speak both languages,
-                so the handoff becomes a conversation, not a translation.
+                I come from a visual and motion design background, where everything was decided by
+                opinion: <em>"make it bigger, change the color, I'm not feeling it"</em>. <br />That wore me out.
               </p>
-            </Reveal>
 
-            <Reveal className="about__image" as="aside" delay={0.1}>
-              <img src="/profile.jpg" alt="Portrait of Ramón Camacho" />
+              <p>
+                In product, the rules change: if a user can't complete a flow, that's not opinion,
+                it's something you didn't solve well. So before I design, <br /><strong>I'm a user first</strong>.
+              </p>
+
+              <p>
+                Over the past year I've gone deep into <strong>Design Systems</strong> and{' '}
+                <strong>Accessibility</strong>. Auditing sites pushed me into code for real. I now also
+                work as a <br /><strong>Full Stack developer</strong>, and I cut friction with engineering before
+                it happens.
+              </p>
+
+              <blockquote className="about__quote">
+                <strong>
+                  Understanding what I design.
+                  <br />
+                  Building what I understand.
+                </strong>
+              </blockquote>
+
             </Reveal>
           </div>
 
-          <Reveal className="principles">
-            {principles.map((p) => (
-              <div className="principle" key={p.b}>
-                <b>{p.b}</b>
-                <span>{p.s}</span>
-              </div>
-            ))}
-          </Reveal>
+
+
+          {/* METHODOLOGY */}
+          <section className="methodology" aria-labelledby="how-i-work-title">
+            <Reveal className="section__head">
+              <h3 className="about__subheading" id="how-i-work-title">
+                How I Work
+              </h3>
+            </Reveal>
+
+            <Reveal className="methodology__cards">
+              {pillars.map((p) => (
+                <div className="pillar" key={p.num}>
+                  <span className="pillar__num">{p.num}</span>
+                  <h3 className="h3">{p.name}</h3>
+                  <p>{p.text}</p>
+                </div>
+              ))}
+            </Reveal>
+          </section>
+
         </div>
       </section>
+
+      <CircuitSection />
 
       {/* SKILLS */}
       <div className="marquee" aria-hidden="true">
@@ -191,30 +227,9 @@ export default function Home() {
         </div>
       </div>
 
-      {/* METHODOLOGY */}
-      <section className="methodology">
-        <div className="container">
-
-          <Reveal className="section__head">
-            <h2 className="h2">Methodology</h2>
-            <p>
-              Design, systems and implementation working together — not as separate phases,
-              but as one continuous product process.
-            </p>
-          </Reveal>
-
-          <Reveal className="methodology__cards">
-            {pillars.map((p) => (
-              <div className="pillar" key={p.num}>
-                <span className="pillar__num">{p.num}</span>
-                <h3 className="h3">{p.name}</h3>
-                <p>{p.text}</p>
-              </div>
-            ))}
-          </Reveal>
-
-        </div>
-      </section>
     </div>
   )
 }
+
+
+

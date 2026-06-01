@@ -260,8 +260,7 @@
 .footer {
   background: var(--black);
   color: var(--white);
-  padding: clamp(4rem, 8vw, 7rem) 0 2.5rem;
-  margin-top: clamp(5rem, 10vw, 9rem);
+  padding: 112px 0 40px;
 }
 
 .footer__cta {
@@ -270,7 +269,7 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 2rem;
-  padding-bottom: clamp(3rem, 6vw, 5rem);
+  padding-bottom: clamp(3rem, 6vw, 4rem);
   border-bottom: 1px solid rgba(248, 250, 252, 0.12);
 }
 
@@ -354,7 +353,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 1rem;
-  margin-top: 3.5rem;
+  margin-top: 2.5rem;
   padding-top: 1.6rem;
   border-top: 1px solid rgba(248, 250, 252, 0.12);
   font-size: 0.84rem;
