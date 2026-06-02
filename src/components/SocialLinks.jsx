@@ -17,7 +17,7 @@ const socials = [
     },
     {
         label: 'Instagram',
-        href: 'https://www.instagram.com/wenreidesign',
+        href: 'https://www.instagram.com/wcaginaction?igsh=M2twaWdwZWY1MDFo&utm_source=qr',
         icon: <FaInstagram />,
     },
 ]
