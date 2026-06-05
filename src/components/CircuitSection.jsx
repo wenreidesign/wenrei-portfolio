@@ -106,32 +106,34 @@ const CONNECTIONS_TABLET = [
 ]
 
 // MOBILE (≤700px): Compact connections for mobile layout
+// Mobile node positions in CSS: Design(10%,8%), Systems(62%,8%), Accessibility(15%,70%), Code(58%,70%), PRODUCT(25%,40%)
+// Converted to viewBox coords (900x360): Design(90,29), Systems(558,29), Accessibility(135,252), Code(522,252), PRODUCT(225,144)
 const CONNECTIONS_MOBILE = [
   {
-    // Design - mobile positioning
-    d:   'M 225,120  L 250,120 Q 270,120 270,140 L 270,155 Q 270,170 290,170 L 315,170',
-    L:   150,
+    // Design (90,29) → PRODUCT (225,144)
+    d:   'M 90,40  L 120,40  Q 150,40  150,70  L 150,120 Q 150,144 180,144 L 225,144',
+    L:   140,
     dur: '4s',
     begin: '0s',
   },
   {
-    // Systems - mobile positioning
-    d:   'M 655,130  L 635,130 Q 615,130 615,150 L 615,155 Q 615,170 595,170 L 575,170',
-    L:   100,
+    // Systems (558,29) → PRODUCT (225,144)
+    d:   'M 558,40  L 520,40  Q 480,40  480,70  L 480,120 Q 480,144 450,144 L 225,144',
+    L:   140,
     dur: '2.7s',
     begin: '1s',
   },
   {
-    // Accessibility - mobile positioning
-    d:   'M 228,300  L 255,300 Q 275,300 275,280 L 275,190 Q 275,170 295,170 L 315,170',
+    // Accessibility (135,252) → PRODUCT (225,144)
+    d:   'M 135,252  L 150,252 Q 180,252 180,210 L 180,170 Q 180,144 210,144 L 225,144',
     L:   120,
     dur: '3.4s',
     begin: '2s',
   },
   {
-    // Code - mobile positioning
-    d:   'M 658,280  L 630,280 Q 610,280 610,260 L 610,180 Q 610,170 590,170 L 575,170',
-    L:   90,
+    // Code (522,252) → PRODUCT (225,144)
+    d:   'M 522,252  L 490,252 Q 450,252 450,210 L 450,170 Q 450,144 240,144 L 225,144',
+    L:   120,
     dur: '2.2s',
     begin: '3s',
   },
