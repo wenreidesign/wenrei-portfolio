@@ -13,6 +13,7 @@ export const cases = [
     summary:
       'How I designed the first digital way to book a car service for SEAT and CUPRA, now live in 47 countries.',
     tags: ['UX Research', 'UI Design', 'Design System', 'Prototyping'],
+    metric: { value: '+35%', label: 'online appointments' },
     meta: {
       role: 'Product Designer — SEAT & CUPRA web',
       team: 'SEAT Web & Private Area',
