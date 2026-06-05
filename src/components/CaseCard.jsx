@@ -15,6 +15,7 @@ export default function CaseCard({ data }) {
           alt={`${data.cardTitle} — ${data.client}`}
           className={data.coverFit === 'contain' ? 'fit-contain' : 'fit-cover'}
           loading="lazy"
+          decoding="async"
         />
         {data.metric && (
           <div className="case-card__metric">
