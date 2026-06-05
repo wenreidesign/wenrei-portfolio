@@ -201,6 +201,26 @@ export default function CircuitSection() {
               </div>
             ))}
           </div>
+
+          {/* SVG Connectors */}
+          <svg className="circuit-mobile__connectors" viewBox="0 0 100 60" preserveAspectRatio="none">
+            {/* Lines from 4 corners to center */}
+            <line x1="10" y1="0" x2="50" y2="60" stroke="url(#gradientLeft)" strokeWidth="2" />
+            <line x1="90" y1="0" x2="50" y2="60" stroke="url(#gradientRight)" strokeWidth="2" />
+            <line x1="10" y1="0" x2="50" y2="60" stroke="url(#gradientLeft)" strokeWidth="2" opacity="0.3" />
+            <line x1="90" y1="0" x2="50" y2="60" stroke="url(#gradientRight)" strokeWidth="2" opacity="0.3" />
+            <defs>
+              <linearGradient id="gradientLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#fe35aa" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#fe35aa" stopOpacity="0.2" />
+              </linearGradient>
+              <linearGradient id="gradientRight" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#fe35aa" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#fe35aa" stopOpacity="0.2" />
+              </linearGradient>
+            </defs>
+          </svg>
+
           <div className="circuit-mobile__product">
             <span className="circuit-node__star" aria-hidden="true">✦</span>
             <strong>PRODUCT</strong>
