@@ -72,7 +72,7 @@ export const cases = [
     coverFit: 'cover',
     client: 'SEAT · CUPRA',
     cardTitle: "You had a question. Google couldn't take you to the answer.",
-    articleTitle: 'Booking a car service used to mean picking up the phone.',
+    articleTitle: "CUPRA's help content had grown into a wall of text no one could navigate.",
     summary:
       "Restructuring SEAT and CUPRA's FAQs so every topic became findable in search and easy to navigate.",
     tags: ['Information Architecture', 'UX', 'SEO', 'UX Design', 'Design System'],
@@ -127,7 +127,7 @@ export const cases = [
     coverFit: 'cover',
     client: 'Public Administration',
     cardTitle: 'Citizens gave up before they could file a simple form',
-    articleTitle: 'Booking a car service used to mean picking up the phone.',
+    articleTitle: 'Citizens had to understand legal language before they could even start the form.',
     summary:
       'Redesigning a government service so the identification maze stopped blocking people from even starting.',
     tags: ['Heuristic Evaluation', 'Service design', 'Progressive disclosure', 'Prototyping'],
