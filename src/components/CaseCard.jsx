@@ -8,7 +8,7 @@ const Arrow = () => (
 
 export default function CaseCard({ data }) {
   return (
-    <Link to={`/work/${data.slug}`} className="case-card">
+    <Link to={`/work/${data.slug}`} className="case-card" aria-label={`View case study: ${data.cardTitle}`}>
       <div className="case-card__media">
         <img
           src={data.cover}
