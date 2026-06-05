@@ -188,17 +188,19 @@ export default function CircuitSection() {
 
         </div>
 
-        {/* Mobile fallback — cards in column */}
+        {/* Mobile fallback — 2x2 grid of nodes + centered PRODUCT */}
         <div className="circuit-mobile">
-          {NODES.map((node) => (
-            <div key={node.id} className="circuit-mobile__card">
-              <span className="circuit-node__dot" style={{ background: node.color }} />
-              <div>
-                <strong className="circuit-mobile__label">{node.label}</strong>
-                <span className="circuit-mobile__sub">{node.sub}</span>
+          <div className="circuit-mobile__grid">
+            {NODES.map((node) => (
+              <div key={node.id} className="circuit-mobile__card">
+                <span className="circuit-node__dot" style={{ background: node.color }} />
+                <div>
+                  <strong className="circuit-mobile__label">{node.label}</strong>
+                  <span className="circuit-mobile__sub">{node.sub}</span>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
           <div className="circuit-mobile__product">
             <span className="circuit-node__star" aria-hidden="true">✦</span>
             <strong>PRODUCT</strong>
