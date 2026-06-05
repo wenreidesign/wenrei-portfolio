@@ -439,6 +439,7 @@
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
+  min-height: 520px;
 }
 
 .about__image img {
