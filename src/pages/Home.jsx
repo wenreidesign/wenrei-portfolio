@@ -170,7 +170,7 @@ export default function Home() {
             </aside>
             <Reveal className="about__body">
               <p>
-                I'm Ramón Camacho, a Product Designer focused on web apps and B2C platforms. I work with{' '}
+                I'm <strong>Ramón Camacho</strong>, a Product Designer focused on web apps and B2C platforms. I work with{' '}
                 <strong>Design Systems</strong> and apply <strong>accessibility</strong> and{' '}
                 <strong>front-end criteria</strong> in every decision I make.
               </p>

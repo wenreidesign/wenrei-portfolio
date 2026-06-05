@@ -858,7 +858,8 @@
 
 .case__figure-frame img.fit-contain {
   object-fit: contain;
-  padding: 2.5%;
+  object-position: center center;
+  padding: 3rem;
 }
 
 .case__figure figcaption {
