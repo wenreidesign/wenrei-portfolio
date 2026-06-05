@@ -97,17 +97,6 @@
   border-radius: 4px;
 }
 
-.nav__link::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 2px;
-  background: var(--fuchsia);
-  transition: width 0.3s var(--ease);
-}
-
 .nav__link:hover::after {
   width: 100%;
 }
