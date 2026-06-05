@@ -30,6 +30,9 @@
   --gutter: clamp(1.25rem, 5vw, 4rem);
   --radius: 14px;
   --radius-lg: 22px;
+  --space-xl: 120px;
+  --space-lg: 80px;
+  --space-md: 48px;
 
   /* Motion */
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
