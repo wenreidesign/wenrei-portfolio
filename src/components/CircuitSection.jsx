@@ -102,10 +102,10 @@ export default function CircuitSection() {
         {/* Diagram */}
         <div className="circuit-diagram">
 
-          {/* SVG — curved lines + animated glows (desktop + tablet) */}
+          {/* SVG — curved lines + animated glows (all viewports) */}
           <svg
             viewBox="0 0 900 360"
-            className="circuit-svg circuit-svg--desktop"
+            className="circuit-svg"
             aria-hidden="true"
             preserveAspectRatio="xMidYMid meet"
           >
@@ -159,60 +159,6 @@ export default function CircuitSection() {
                 </g>
               )
             })}
-          </svg>
-
-          {/* SVG — mobile version with adjusted line positions */}
-          <svg
-            viewBox="0 0 100 100"
-            className="circuit-svg circuit-svg--mobile"
-            aria-hidden="true"
-            preserveAspectRatio="xMidYMid meet"
-          >
-            <defs>
-              <filter id="lg-mobile" x="-100%" y="-100%" width="300%" height="300%">
-                <feGaussianBlur stdDeviation="3.5" result="blur" />
-              </filter>
-            </defs>
-
-            {/* Static curved guide lines for mobile */}
-            {inView && (
-              <>
-                {/* Lines from corners to center */}
-                <path d="M 15 10 Q 30 40 50 50" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="1.5" strokeDasharray="5 4" strokeLinecap="round" />
-                <path d="M 85 10 Q 70 40 50 50" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="1.5" strokeDasharray="5 4" strokeLinecap="round" />
-                <path d="M 15 90 Q 30 60 50 50" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="1.5" strokeDasharray="5 4" strokeLinecap="round" />
-                <path d="M 85 90 Q 70 60 50 50" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="1.5" strokeDasharray="5 4" strokeLinecap="round" />
-
-                {/* Animated comet glows */}
-                <path d="M 15 10 Q 30 40 50 50" fill="none" stroke="#fe35aa" strokeWidth="7" strokeLinecap="round" filter="url(#lg-mobile)" opacity="0.5">
-                  <animate attributeName="stroke-dashoffset" from="0" to="-40" dur="4s" begin="0s" repeatCount="indefinite" calcMode="linear" />
-                </path>
-                <path d="M 15 10 Q 30 40 50 50" fill="none" stroke="#fe35aa" strokeWidth="2" strokeLinecap="round">
-                  <animate attributeName="stroke-dashoffset" from="0" to="-40" dur="4s" begin="0s" repeatCount="indefinite" calcMode="linear" />
-                </path>
-
-                <path d="M 85 10 Q 70 40 50 50" fill="none" stroke="#fe35aa" strokeWidth="7" strokeLinecap="round" filter="url(#lg-mobile)" opacity="0.5">
-                  <animate attributeName="stroke-dashoffset" from="0" to="-40" dur="2.7s" begin="1s" repeatCount="indefinite" calcMode="linear" />
-                </path>
-                <path d="M 85 10 Q 70 40 50 50" fill="none" stroke="#fe35aa" strokeWidth="2" strokeLinecap="round">
-                  <animate attributeName="stroke-dashoffset" from="0" to="-40" dur="2.7s" begin="1s" repeatCount="indefinite" calcMode="linear" />
-                </path>
-
-                <path d="M 15 90 Q 30 60 50 50" fill="none" stroke="#fe35aa" strokeWidth="7" strokeLinecap="round" filter="url(#lg-mobile)" opacity="0.5">
-                  <animate attributeName="stroke-dashoffset" from="0" to="-40" dur="3.4s" begin="2s" repeatCount="indefinite" calcMode="linear" />
-                </path>
-                <path d="M 15 90 Q 30 60 50 50" fill="none" stroke="#fe35aa" strokeWidth="2" strokeLinecap="round">
-                  <animate attributeName="stroke-dashoffset" from="0" to="-40" dur="3.4s" begin="2s" repeatCount="indefinite" calcMode="linear" />
-                </path>
-
-                <path d="M 85 90 Q 70 60 50 50" fill="none" stroke="#fe35aa" strokeWidth="7" strokeLinecap="round" filter="url(#lg-mobile)" opacity="0.5">
-                  <animate attributeName="stroke-dashoffset" from="0" to="-40" dur="2.2s" begin="3s" repeatCount="indefinite" calcMode="linear" />
-                </path>
-                <path d="M 85 90 Q 70 60 50 50" fill="none" stroke="#fe35aa" strokeWidth="2" strokeLinecap="round">
-                  <animate attributeName="stroke-dashoffset" from="0" to="-40" dur="2.2s" begin="3s" repeatCount="indefinite" calcMode="linear" />
-                </path>
-              </>
-            )}
           </svg>
 
           {/* Corner node cards — asymmetric positions */}
