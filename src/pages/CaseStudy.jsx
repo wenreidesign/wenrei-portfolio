@@ -1,5 +1,6 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { Helmet } from 'react-helmet-async'
 import { getCase, cases } from '../data/cases.js'
 
 const Arrow = ({ left }) => (
@@ -25,6 +26,14 @@ export default function CaseStudy() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
     >
+      <Helmet>
+        <title>{data.cardTitle} · WENREI DESIGN</title>
+        <meta name="description" content={data.summary} />
+        <meta property="og:title" content={`${data.cardTitle} · WENREI DESIGN`} />
+        <meta property="og:description" content={data.summary} />
+        <meta property="og:image" content="https://wenreidesign.com/og-image.jpg" />
+        <meta property="og:url" content={`https://wenreidesign.com/work/${data.slug}`} />
+      </Helmet>
       <div className="container">
         <Link to="/#work" className="case__back"><Arrow left /> Back to work</Link>
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Helmet } from 'react-helmet-async'
 import { cases } from '../data/cases.js'
 import CaseCard from '../components/CaseCard.jsx'
 import Reveal from '../components/Reveal.jsx'
@@ -52,6 +53,15 @@ export default function Home() {
 
   return (
     <div>
+      <Helmet>
+        <title>WENREI DESIGN — Designing clarity. Building reality.</title>
+        <meta name="description" content="Product Designer focused on Design Systems, accessibility and front-end. B2C platforms, 5+ years. Based in Barcelona." />
+        <meta property="og:title" content="WENREI DESIGN — Designing clarity. Building reality." />
+        <meta property="og:description" content="Product Designer who closes the gap between design and code." />
+        <meta property="og:image" content="https://wenreidesign.com/og-image.jpg" />
+        <meta property="og:url" content="https://wenreidesign.com" />
+        <meta property="og:type" content="website" />
+      </Helmet>
       {/* HERO */}
       <section className="hero">
         <div className="container hero__inner">
