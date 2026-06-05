@@ -1,6 +1,6 @@
-import cupraBooking from '../assets/case-cupra-booking.png'
-import cupraFaqs from '../assets/case-cupra-faqs.jpg'
-import gencatCertificat from '../assets/case-gencat-certificat.jpg'
+import cupraBooking from '../assets/case-cupra-booking.webp'
+import cupraFaqs from '../assets/case-cupra-faqs.webp'
+import gencatCertificat from '../assets/case-gencat-certificat.webp'
 
 export const cases = [
   {
