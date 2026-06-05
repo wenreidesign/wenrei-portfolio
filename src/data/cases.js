@@ -45,6 +45,7 @@ export const cases = [
         fit: 'contain',
         caption:
           'Service selection step — model, mileage and workshop summary kept visible so the user never loses context while choosing.',
+        alt: 'CUPRA service booking interface showing vehicle model selection and appointment summary panel',
       },
       {
         kind: 'text',
@@ -100,6 +101,7 @@ export const cases = [
         fit: 'cover',
         caption:
           'Restructured FAQ — a persistent category rail on the left, grouped subcategories, and expandable questions that keep the page scannable.',
+        alt: 'Restructured CUPRA FAQ page with persistent category navigation rail and grouped accordion questions',
       },
       {
         kind: 'text',
@@ -155,6 +157,7 @@ export const cases = [
         fit: 'cover',
         caption:
           'The entry modal — clarifying the choice between proceeding with a digital certificate or without it, before the user commits to a path.',
+        alt: 'Government procedure entry modal showing digital certificate and alternative access options',
       },
       {
         kind: 'text',

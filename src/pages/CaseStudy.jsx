@@ -62,7 +62,7 @@ export default function CaseStudy() {
           s.kind === 'image' ? (
             <figure className="case__figure" key={i}>
               <div className="case__figure-frame">
-                <img src={s.src} alt={s.caption} className={s.fit === 'contain' ? 'fit-contain' : 'fit-cover'} loading="lazy" />
+                <img src={s.src} alt={s.alt || s.caption} className={s.fit === 'contain' ? 'fit-contain' : 'fit-cover'} loading="lazy" decoding="async" />
               </div>
               {s.caption && <figcaption>{s.caption}</figcaption>}
             </figure>
