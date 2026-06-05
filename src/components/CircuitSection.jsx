@@ -24,7 +24,7 @@ const NODES = [
   {
     id: 'accessibility',
     label: 'Accessibility',
-    sub: 'WCAG · Inclusion',
+    sub: 'WCAG · Auditing',
     color: '#a78bfa',
     style: { left: '3.11%', top: '65.83%' },        // x=28, y=237
   },
@@ -187,6 +187,25 @@ export default function CircuitSection() {
           </motion.div>
 
         </div>
+
+        {/* Mobile fallback — cards in column */}
+        <div className="circuit-mobile">
+          {NODES.map((node) => (
+            <div key={node.id} className="circuit-mobile__card">
+              <span className="circuit-node__dot" style={{ background: node.color }} />
+              <div>
+                <strong className="circuit-mobile__label">{node.label}</strong>
+                <span className="circuit-mobile__sub">{node.sub}</span>
+              </div>
+            </div>
+          ))}
+          <div className="circuit-mobile__product">
+            <span className="circuit-node__star" aria-hidden="true">✦</span>
+            <strong>PRODUCT</strong>
+            <span>Impactful · Usable · Scalable</span>
+          </div>
+        </div>
+
       </div>
     </section>
   )

@@ -633,9 +633,68 @@
   50%      { box-shadow: 0 0 0 2px rgba(254, 53, 170, 0.48), 0 0 26px rgba(254, 53, 170, 0.2); border-color: rgba(254, 53, 170, 0.8); }
 }
 
+/* Circuit mobile fallback */
+.circuit-mobile {
+  display: none;
+}
+
+.circuit-mobile__card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+}
+
+.circuit-mobile__label {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  margin-bottom: 2px;
+}
+
+.circuit-mobile__sub {
+  font-size: 0.88rem;
+  color: rgba(248,250,252,0.45);
+}
+
+.circuit-mobile__product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.3rem;
+  padding: 1.25rem;
+  background: var(--black-80);
+  border: 1px solid rgba(254,53,170,0.3);
+  border-radius: 12px;
+  color: var(--white);
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: 0.04em;
+  animation: product-pulse 2s ease-in-out infinite;
+}
+
+.circuit-mobile__product span:last-child {
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: rgba(248,250,252,0.5);
+  letter-spacing: 0;
+}
+
 @media (max-width: 700px) {
   .circuit-diagram {
     display: none;
+  }
+  .circuit-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
   }
 }
 
@@ -939,6 +998,14 @@
 
   .about__subheading {
     font-size: 2.25rem;
+  }
+
+  .circuit-diagram {
+    padding-bottom: 52%;
+  }
+
+  .circuit-title {
+    font-size: 36px;
   }
 
 }
