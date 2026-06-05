@@ -789,6 +789,8 @@
 }
 
 .case__hero-media img.fit-contain {
+  width: auto;
+  height: auto;
   object-fit: scale-down;
   object-position: center;
   max-width: 100%;
@@ -841,6 +843,8 @@
 }
 
 .case__figure-frame img.fit-contain {
+  width: auto;
+  height: auto;
   object-fit: scale-down;
   object-position: center;
   max-width: 100%;
