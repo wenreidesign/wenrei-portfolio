@@ -98,6 +98,11 @@
   }
 }
 
+.marquee:hover .marquee__track,
+.marquee:focus-within .marquee__track {
+  animation-play-state: paused;
+}
+
 /* ============================================
    METHODOLOGY
 ============================================ */
