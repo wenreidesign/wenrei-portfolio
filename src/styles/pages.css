@@ -592,7 +592,7 @@
 
 /* H4-level: subtitles */
 .circuit-node__sub {
-  font-size: 16px;
+  font-size: clamp(0.7rem, 1.3vw, 16px);
   font-weight: 500;
   color: rgba(248, 250, 252, 0.42);
   line-height: 1.4;
