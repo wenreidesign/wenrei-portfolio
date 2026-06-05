@@ -690,17 +690,20 @@
   align-items: center;
   text-align: center;
   gap: 0.25rem;
-  padding: 1rem;
+  padding: 1.25rem 1rem;
   background: var(--black-80);
-  border: 1px solid rgba(254,53,170,0.3);
-  border-radius: 12px;
+  border: 2px solid rgba(254,53,170,0.4);
+  border-radius: 16px;
   color: var(--white);
   font-weight: 800;
-  font-size: 1.1rem;
-  letter-spacing: 0.04em;
+  font-size: 1.3rem;
+  letter-spacing: 0.06em;
   animation: product-pulse 2s ease-in-out infinite;
-  width: 90%;
+  width: 65%;
   max-width: 100%;
+  margin-top: -2.5rem;
+  position: relative;
+  z-index: 10;
 }
 
 .circuit-mobile__product span:last-child {
