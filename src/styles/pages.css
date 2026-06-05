@@ -790,8 +790,7 @@
 
 .case__hero-media img.fit-contain {
   object-fit: contain;
-  object-position: center center;
-  padding: 3rem;
+  object-position: center;
 }
 
 .case__section {
@@ -841,8 +840,7 @@
 
 .case__figure-frame img.fit-contain {
   object-fit: contain;
-  object-position: center center;
-  padding: 3rem;
+  object-position: center;
 }
 
 .case__figure figcaption {
