@@ -559,6 +559,31 @@
   height: 100%;
 }
 
+/* Connection path styling for responsive adjustments */
+.circuit-path,
+.circuit-animation {
+  /* Default positioning for desktop (1440px+) */
+}
+
+/* Desktop breakpoint adjustments */
+@media (min-width: 1100px) {
+  .design-conn {
+    /* Design to Product - moved down and adjusted */
+  }
+
+  .systems-conn {
+    /* Systems to Product - adjusted for desktop */
+  }
+
+  .accessibility-conn {
+    /* Accessibility to Product - adjusted for desktop */
+  }
+
+  .code-conn {
+    /* Code to Product - adjusted for desktop */
+  }
+}
+
 /* Node cards */
 .circuit-node {
   position: absolute;

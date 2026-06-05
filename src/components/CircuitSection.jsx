@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
 
 // SVG viewBox: 0 0 900 360
@@ -40,7 +40,9 @@ const NODES = [
 // Curved L-shaped paths: rounded corners via Q bezier (r=16 for Design/Systems/Accessibility, r=10 for Code)
 // Each path: cornerNode_edge → bend → product_edge
 // Flow direction: CORNER → PRODUCT (animated glow travels this way)
-const CONNECTIONS = [
+
+// DESKTOP (1440px+): Original balanced connections
+const CONNECTIONS_DESKTOP = [
   {
     // Design right (225,61) → bend (265) → Product left (308,160)
     d:   'M 225,61  L 249,61  Q 265,61  265,77  L 265,144 Q 265,160 281,160 L 308,160',
@@ -71,6 +73,72 @@ const CONNECTIONS = [
   },
 ]
 
+// TABLET (701-1100px): Adjusted connections for tablet layout
+const CONNECTIONS_TABLET = [
+  {
+    // Design - moved down and slightly left
+    d:   'M 225,100  L 249,100 Q 265,100 265,120 L 265,150 Q 265,165 281,165 L 308,165',
+    L:   168,
+    dur: '4s',
+    begin: '0s',
+  },
+  {
+    // Systems - adjusted for tablet
+    d:   'M 655,120  L 640,120 Q 624,120 624,140 L 624,150 Q 624,165 608,165 L 592,165',
+    L:   114,
+    dur: '2.7s',
+    begin: '1s',
+  },
+  {
+    // Accessibility - adjusted for tablet
+    d:   'M 228,290  L 249,290 Q 265,290 265,270 L 265,200 Q 265,185 281,185 L 308,185',
+    L:   141,
+    dur: '3.4s',
+    begin: '2s',
+  },
+  {
+    // Code - adjusted for tablet
+    d:   'M 658,260  L 634,260 Q 624,260 624,240 L 624,190 Q 624,185 614,185 L 592,185',
+    L:   91,
+    dur: '2.2s',
+    begin: '3s',
+  },
+]
+
+// MOBILE (≤700px): Compact connections for mobile layout
+const CONNECTIONS_MOBILE = [
+  {
+    // Design - mobile positioning
+    d:   'M 225,120  L 250,120 Q 270,120 270,140 L 270,155 Q 270,170 290,170 L 315,170',
+    L:   150,
+    dur: '4s',
+    begin: '0s',
+  },
+  {
+    // Systems - mobile positioning
+    d:   'M 655,130  L 635,130 Q 615,130 615,150 L 615,155 Q 615,170 595,170 L 575,170',
+    L:   100,
+    dur: '2.7s',
+    begin: '1s',
+  },
+  {
+    // Accessibility - mobile positioning
+    d:   'M 228,300  L 255,300 Q 275,300 275,280 L 275,190 Q 275,170 295,170 L 315,170',
+    L:   120,
+    dur: '3.4s',
+    begin: '2s',
+  },
+  {
+    // Code - mobile positioning
+    d:   'M 658,280  L 630,280 Q 610,280 610,260 L 610,180 Q 610,170 590,170 L 575,170',
+    L:   90,
+    dur: '2.2s',
+    begin: '3s',
+  },
+]
+
+const CONNECTIONS = CONNECTIONS_DESKTOP // Default to desktop
+
 const DASH = 28 // traveling-segment length
 
 const cardVariant = {
@@ -84,6 +152,23 @@ const cardVariant = {
 export default function CircuitSection() {
   const ref    = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-8%' })
+  const [connections, setConnections] = useState(CONNECTIONS_DESKTOP)
+
+  useEffect(() => {
+    const updateConnections = () => {
+      if (window.innerWidth <= 700) {
+        setConnections(CONNECTIONS_MOBILE)
+      } else if (window.innerWidth <= 1100) {
+        setConnections(CONNECTIONS_TABLET)
+      } else {
+        setConnections(CONNECTIONS_DESKTOP)
+      }
+    }
+
+    updateConnections()
+    window.addEventListener('resize', updateConnections)
+    return () => window.removeEventListener('resize', updateConnections)
+  }, [])
 
   return (
     <section className="circuit-section" ref={ref} aria-label="What connects my work">
@@ -116,22 +201,26 @@ export default function CircuitSection() {
             </defs>
 
             {/* Static curved guide lines */}
-            {CONNECTIONS.map((c, i) => (
-              <path key={i} d={c.d} fill="none"
-                stroke="rgba(255,255,255,0.1)"
-                strokeWidth="1.5"
-                strokeDasharray="5 4"
-                strokeLinecap="round"
-              />
-            ))}
+            {connections.map((c, i) => {
+              const connectionNames = ['design-conn', 'systems-conn', 'accessibility-conn', 'code-conn']
+              return (
+                <path key={i} className={`circuit-path ${connectionNames[i]}`} d={c.d} fill="none"
+                  stroke="rgba(255,255,255,0.1)"
+                  strokeWidth="1.5"
+                  strokeDasharray="5 4"
+                  strokeLinecap="round"
+                />
+              )
+            })}
 
             {/* Animated comet — glow halo + crisp core */}
-            {inView && CONNECTIONS.map((c, i) => {
+            {inView && connections.map((c, i) => {
               const gap     = c.L + DASH
               const dashArr = `${DASH} ${gap}`
               const toVal   = `-${gap}`
+              const connectionNames = ['design-conn', 'systems-conn', 'accessibility-conn', 'code-conn']
               return (
-                <g key={i}>
+                <g key={i} className={`circuit-animation ${connectionNames[i]}`}>
                   <path d={c.d} fill="none"
                     stroke="#fe35aa" strokeWidth="7"
                     strokeLinecap="round"
@@ -176,7 +265,7 @@ export default function CircuitSection() {
           {/* PRODUCT — center, solid dark bg so glow fades under it */}
           <motion.div
             className="circuit-node circuit-node--product"
-            style={{ left: '34.22%', top: '33.89%' }}
+            style={{ left: '36.22%', top: '25.22%' }}
             initial={{ opacity: 0, scale: 0.88 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.55, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
