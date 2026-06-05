@@ -54,9 +54,9 @@ export default function Home() {
   return (
     <div>
       <Helmet>
-        <title>WENREI DESIGN — Designing clarity. Building reality.</title>
+        <title>Ramón Camacho — Product Designer · WENREI DESIGN</title>
         <meta name="description" content="Product Designer focused on Design Systems, accessibility and front-end. B2C platforms, 5+ years. Based in Barcelona." />
-        <meta property="og:title" content="WENREI DESIGN — Designing clarity. Building reality." />
+        <meta property="og:title" content="Ramón Camacho — Product Designer · WENREI DESIGN" />
         <meta property="og:description" content="Product Designer who closes the gap between design and code." />
         <meta property="og:image" content="https://wenreidesign.com/og-image.jpg" />
         <meta property="og:url" content="https://wenreidesign.com" />
@@ -66,7 +66,7 @@ export default function Home() {
       <section className="hero">
         <div className="container hero__inner">
           <motion.span className="eyebrow" {...heroItem} transition={E}>
-            Product Designer · Web platforms
+            Ramón Camacho · Product Designer · Web platforms
           </motion.span>
 
           <motion.h1
@@ -170,7 +170,7 @@ export default function Home() {
             </aside>
             <Reveal className="about__body">
               <p>
-                I'm a Product Designer focused on web apps and B2C platforms. I work with{' '}
+                I'm Ramón Camacho, a Product Designer focused on web apps and B2C platforms. I work with{' '}
                 <strong>Design Systems</strong> and apply <strong>accessibility</strong> and{' '}
                 <strong>front-end criteria</strong> in every decision I make.
               </p>
