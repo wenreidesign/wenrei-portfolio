@@ -78,7 +78,7 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-lg);
-  font-size: 0.95rem;
+  font-size: var(--text-md);
   font-weight: 600;
   letter-spacing: 0.02em;
   color: var(--ink-60);
@@ -419,7 +419,7 @@
   gap: var(--space-sm);
   padding: 0.85rem 0;
   border-bottom: 1px solid var(--hairline);
-  font-size: 0.95rem;
+  font-size: var(--text-sm);
 }
 
 .stacklist li:last-child {
@@ -620,7 +620,7 @@
 
 /* H4-level: subtitles */
 .circuit-node__sub {
-  font-size: clamp(0.7rem, 1.3vw, 16px);
+  font-size: clamp(0.8125rem, 1.3vw, 1rem);
   font-weight: 500;
   color: rgba(248, 250, 252, 0.42);
   line-height: 1.4;
@@ -688,12 +688,12 @@
   }
 
   .circuit-node__label {
-    font-size: clamp(0.8rem, 2.2vw, 1rem);
+    font-size: clamp(0.8125rem, 2.2vw, 1rem);
     line-height: 1.15;
   }
 
   .circuit-node__sub {
-    font-size: clamp(0.55rem, 1.3vw, 0.65rem);
+    font-size: clamp(0.8125rem, 1.3vw, 0.875rem);
     line-height: 1.2;
     margin: 0;
   }
@@ -806,7 +806,7 @@
 }
 
 .case__meta dd {
-  font-size: 0.95rem;
+  font-size: var(--text-sm);
   font-weight: 600;
 }
 
@@ -897,7 +897,7 @@
 
 .case__figure figcaption {
   margin-top: 0.9rem;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   color: var(--ink-60);
   max-width: 64ch;
 }

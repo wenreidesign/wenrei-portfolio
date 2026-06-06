@@ -349,7 +349,7 @@
 
 .footer__col a {
   display: block;
-  font-size: 0.95rem;
+  font-size: var(--text-sm);
   color: rgba(248, 250, 252, 0.82);
   padding: 0.35rem 0;
   transition: color 0.2s var(--ease);

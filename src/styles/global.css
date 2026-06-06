@@ -25,6 +25,13 @@
   /* Type */
   --font: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
+  /* Typography scale — accessibility minimum 13px */
+  --text-xs: 0.8125rem;     /* 13px — smallest acceptable */
+  --text-sm: 0.875rem;      /* 14px — secondary text */
+  --text-md: 1rem;          /* 16px — body default */
+  --text-lg: 1.125rem;      /* 18px — larger secondary */
+  --text-2xs-responsive: clamp(0.8125rem, 2vw, 1rem);  /* 13px–16px responsive */
+
   /* Spatial rhythm — strict 8px base scale */
   --maxw: 1200px;
   --gutter: clamp(1.25rem, 5vw, 4rem);
