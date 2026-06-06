@@ -5,7 +5,7 @@
 .hero {
   position: relative;
   padding-top: clamp(9rem, 16vw, 12rem);
-  padding-bottom: var(--space-xl);
+  padding-bottom: var(--space-section);
   overflow: hidden;
 }
 
@@ -15,7 +15,7 @@
 }
 
 .hero__title {
-  margin-top: 40px;
+  margin-top: var(--space-xl);
   max-width: 22ch;
   font-size: 72px;
   line-height: 1.15;
@@ -37,8 +37,8 @@
 }
 
 .hero__lead {
-  margin-top: 24px;
-  margin-bottom: 120px;
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-3xl);
   font-size: clamp(1.25rem, 2vw, 1.7rem);
   line-height: 1.45;
   font-style: italic;
@@ -48,7 +48,7 @@
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: var(--space-sm);
 }
 
 
@@ -70,14 +70,14 @@
 
 .marquee__track {
   display: inline-flex;
-  gap: 3rem;
+  gap: var(--space-xl);
   animation: scroll 32s linear infinite;
 }
 
 .marquee__track span {
   display: inline-flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: var(--space-lg);
   font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -166,15 +166,15 @@
    SECTION HEADERS
    ============================================ */
 .section {
-  padding-top: var(--space-xl);
-  padding-bottom: var(--space-xl);
+  padding-top: var(--space-section);
+  padding-bottom: var(--space-section);
 }
 
 .section__head {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1rem;
+  gap: var(--space-sm);
   margin-bottom: var(--space-lg);
 
 }
@@ -200,12 +200,12 @@
   color: var(--white);
   position: relative;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
-  padding-top: clamp(6rem, 9vw, 8rem);
-  padding-bottom: clamp(6rem, 9vw, 8rem);
+  padding-top: var(--space-section);
+  padding-bottom: var(--space-section);
 }
 
 #work .section__head {
-  margin-bottom: 5rem;
+  margin-bottom: var(--space-3xl);
 }
 
 #work .section__head p {
@@ -322,7 +322,7 @@
 .case-card__tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: var(--space-xs);
   margin: 1.5rem 0 2rem;
 }
 
@@ -373,7 +373,7 @@
 .about {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
-  gap: 64px;
+  gap: var(--space-2xl);
   align-items: stretch;
 }
 
@@ -416,7 +416,7 @@
 .stacklist li {
   display: flex;
   justify-content: space-between;
-  gap: 1rem;
+  gap: var(--space-sm);
   padding: 0.85rem 0;
   border-bottom: 1px solid var(--hairline);
   font-size: 0.95rem;
@@ -597,7 +597,7 @@
   padding: clamp(0.7rem, 1.2vw, 1.1rem) clamp(0.8rem, 1.4vw, 1.3rem);
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--space-xs);
   backdrop-filter: blur(4px);
 }
 
@@ -749,7 +749,7 @@
 .case__back {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--space-xs);
   font-weight: 600;
   font-size: 0.92rem;
   color: var(--ink-60);
@@ -759,7 +759,7 @@
 
 .case__back:hover {
   color: var(--black);
-  gap: 0.75rem;
+  gap: var(--space-xs);
 }
 
 .case__client {
@@ -929,7 +929,7 @@
 .case__nav {
   display: flex;
   justify-content: space-between;
-  gap: 1rem;
+  gap: var(--space-sm);
   margin-top: clamp(3rem, 6vw, 5rem);
   padding-top: 2rem;
   border-top: 1px solid var(--hairline);
@@ -945,7 +945,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 1.2rem;
+  gap: var(--space-md);
 }
 
 .notfound h1 {
@@ -1031,7 +1031,7 @@
     display: flex;
     flex-direction: column;
 
-    gap: 1rem;
+    gap: var(--space-sm);
     width: auto;
     margin-top: 0;
   }

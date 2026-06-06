@@ -25,14 +25,24 @@
   /* Type */
   --font: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
-  /* Spatial rhythm */
+  /* Spatial rhythm — strict 8px base scale */
   --maxw: 1200px;
   --gutter: clamp(1.25rem, 5vw, 4rem);
   --radius: 14px;
   --radius-lg: 22px;
-  --space-xl: 120px;
-  --space-lg: 80px;
-  --space-md: 48px;
+
+  /* Spacing tokens — 8px base (1rem = 16px, so 0.5rem = 8px) */
+  --space-2xs: 0.25rem;   /* 4px — micro spacing */
+  --space-xs: 0.5rem;     /* 8px — tight spacing */
+  --space-sm: 1rem;       /* 16px — comfortable spacing */
+  --space-md: 1.5rem;     /* 24px — standard spacing */
+  --space-lg: 2rem;       /* 32px — generous spacing */
+  --space-xl: 3rem;       /* 48px — large spacing */
+  --space-2xl: 4rem;      /* 64px — extra large spacing */
+  --space-3xl: 6rem;      /* 96px — section spacing */
+
+  /* Section spacing — responsive rhythm */
+  --space-section: clamp(5rem, 9vw, 8rem);  /* 80px–128px responsive */
 
   /* Motion */
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
