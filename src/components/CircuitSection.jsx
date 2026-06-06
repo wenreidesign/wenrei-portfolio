@@ -267,7 +267,7 @@ export default function CircuitSection() {
           {/* PRODUCT — center, solid dark bg so glow fades under it */}
           <motion.div
             className="circuit-node circuit-node--product"
-            style={{ left: '36.22%', top: '25.22%' }}
+            style={{ left: '34.22%', top: '34.58%' }}
             initial={{ opacity: 0, scale: 0.88 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.55, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
