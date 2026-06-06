@@ -6,6 +6,7 @@ import CaseCard from '../components/CaseCard.jsx'
 import Reveal from '../components/Reveal.jsx'
 import SocialLinks from '../components/SocialLinks.jsx'
 import CircuitSection from '../components/CircuitSection.jsx'
+import HeroBackground from '../components/HeroBackground.jsx'
 
 const Arrow = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
@@ -64,6 +65,7 @@ export default function Home() {
       </Helmet>
       {/* HERO */}
       <section className="hero">
+        <HeroBackground />
         <div className="container hero__inner">
           <motion.span className="eyebrow" {...heroItem} transition={E}>
             Ramón Camacho · Product Designer · Web platforms
