@@ -28,8 +28,7 @@ export default function Footer() {
               />
             </span>
             <p className="footer__tag">
-              Designing clarity. Building reality. Product design that closes the gap between
-              idea and product.
+              Designed with clarity. Built with systems. Accessible for everyone. Shipped by one.
             </p>
           </div>
 
