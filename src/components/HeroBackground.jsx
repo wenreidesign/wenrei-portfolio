@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 
 export default function HeroBackground() {
   return (
-    <div className="hero__background" aria-hidden="true">
+    <div className="hero__background" aria-hidden="true" role="presentation">
       {/* Subtle grid lines */}
       <svg className="hero__grid" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
         <defs>

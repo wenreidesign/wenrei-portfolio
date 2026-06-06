@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async'
 import { getCase, cases } from '../data/cases.js'
 
 const Arrow = ({ left }) => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style={left ? { transform: 'rotate(180deg)' } : null}>
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style={left ? { transform: 'rotate(180deg)' } : null} aria-hidden="true">
     <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 )

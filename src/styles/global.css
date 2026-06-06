@@ -17,6 +17,7 @@
   --hairline-strong: rgba(15, 16, 18, 0.16);
   --fuchsia-soft: rgba(254, 53, 170, 0.08);
   --fuchsia-glow: rgba(254, 53, 170, 0.22);
+  --fuchsia-dark: #d01a7f;     /* Higher contrast for small text (4.5:1 vs white) */
 
   /* Functional colors — semantic ONLY, never brand (per brief Q24) */
   --success: #22a06b;
