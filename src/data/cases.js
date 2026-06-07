@@ -26,18 +26,46 @@ export const cases = [
     sections: [
       {
         kind: 'text',
-        heading: 'Where it all started',
+        heading: 'It started with a phone call.',
         body: [
-          'When I picked up this flow, the data told a familiar story: people entered the booking, started selecting services, and dropped off before confirming. The intention to book was there. The path to the end was not.',
-          'My first job wasn’t to redraw screens — it was to understand why a motivated user, someone who actually wanted to service their car, would walk away mid-task.',
+          'SEAT and CUPRA had no digital way to book a workshop appointment. Every service, even a simple oil change, started with a phone call. For users it was slow and frustrating; for workshops, hard to manage.',
+          'The brief was clear: don’t just digitize the call, design something better than it. Two product goals were set from day one', 
+          '1 increase user retention and 2 deliver a faster response time',
+          '**How might we let users book a workshop appointment quickly and with zero friction?**',
         ],
       },
       {
         kind: 'text',
-        heading: 'Digging deeper',
+        heading: 'Then a number changed how I saw the whole project.',
         body: [
-          'Working from wireframes under a strict Mobile-First approach, I mapped the full journey and ran usability tests to see where confidence broke down. The friction wasn’t the length of the form. It was uncertainty: users didn’t know what each service meant, what it would cost them in time, or whether they could change their mind.',
-          'The turning point: the problem wasn’t “too many steps.” It was a lack of clarity and reassurance at the exact moments people had to commit.',
+          'I started from the data the Strategy team had gathered and benchmarked how other automotive brands solved the same problem, studying their information architecture, user flows and UX patterns to avoid known pitfalls and adopt what worked.',
+          'One finding reframed the whole project:',
+          '**more than 50% of service calls were just to book basic, recurring services**',
+          'like an oil change or a routine inspection.',
+          'That changed everything. The challenge wasn’t building a feature that did everything, it was making the most common thing effortless.',
+        ],
+      },
+      {
+        kind: 'text',
+        heading: 'So I started drawing a clearer path.',
+        body: [
+          'To stay consistent with the existing digital ecosystem, I built the flow on top of the existing "Find a Dealer" component, structured as a linear journey:',
+          '1. select services,',
+          '2. pick a date and time,', 
+          '3. confirm personal details.',
+          'Because over half of requests were basic services, I deliberately avoided choice overload, short, clear default options up front, with the option to add detail for users who needed it.',
+          'I also had to define the flow for new and unregistered users, which originally leaned too heavily on the Private Area. It needed to stand on its own without losing the connection to the wider ecosystem, and that connection became a business goal in itself:', 
+          '**drive Private Area adoption by offering personalized services**.',
+        ],
+      },
+      {
+        kind: 'text',
+        heading: 'The first version didn’t work. The team and I argued about a modal.',
+        body: [
+          'This is where I learned the most.',
+          'My gut told me a modal wasn’t the right container for a flow this detailed: it limits navigation, struggles on mobile, raises accessibility concerns, can’t be indexed, and doesn’t persist state. I pushed back.',
+          'But after working it through with other designers and the dev team, I understood the modal was necessary given the system’s architecture. We adopted a modular approach that fit the existing platform, accepting the modal’s trade-offs where they were unavoidable.',
+          '**Takeaway:** weigh every perspective and understand the technical constraints *before* making firm design recommendations.',
         ],
       },
       {
@@ -50,23 +78,37 @@ export const cases = [
       },
       {
         kind: 'text',
-        heading: 'Designing a clearer path',
+        heading: 'In the end, the flow had four moments.',
         body: [
-          'I restructured the flow around one principle: at every step, the user should know exactly where they are, what they’re choosing, and what comes next. The reservation summary stays pinned on the side so the decision context never disappears. Each service carries an inline explanation, so nobody has to guess.',
-          'Because I design with front-end criteria from the start, I built the components to fit the existing CUPRA Design System — consistent tokens, predictable states, and a structure the engineering team could ship without re-interpreting my intent.',
+          '**1. Identify your vehicle.** Users enter the license plate, or pick model and year, to unlock services tailored to their car. Offering multiple ways to identify the vehicle lowers the barrier for users with different levels of car knowledge.',
+          '**2. Select services (and add-ons).** Clear default options, with a free-text field to add specifics. Categorizing services into a short, focused list keeps users from feeling overwhelmed.',
+          '**3. Date & time.** An intuitive calendar with dynamic slots, grouped into blocks like morning and afternoon. Real-time availability only, to minimize errors and frustration.',
+          '**4. Confirm & book.** A real-time summary lets users verify everything before finalizing, with GDPR visibility built in, and a closing confirmation that leaves them confident the booking went through.',
+          'The flow adapts cleanly across Desktop XL/L, Tablet M and Mobile S.',
         ],
       },
       {
         kind: 'text',
-        heading: 'The outcome',
+        heading: 'Seventeen people put it to the test.',
         body: [
-          'The redesigned flow lifted online appointments by 35% and shipped across 47 markets. Beyond the number, it became a flow the support team had to explain far less — the screen now answered the questions people used to call about.',
-          'It’s the kind of result I can defend in a room: a measurable lift, tied to specific design decisions, on a product that real drivers use.',
+          'I tested the flow with 17 users. All of them completed the core tasks. Where I saw friction — incomplete data, invalid selections — I solved it with clear inline tooltips instead of modals, to avoid confusing overlays.',
+          '*"I can now schedule my services in minutes, no calls needed."*',
+          '*"The experience was very clear and gave me confidence in the process."*',
+        ],
+      },
+      {
+        kind: 'text',
+        heading: 'And then the numbers came in.',
+        body: [
+          '**+35%** increase in online appointments in the first 3 months.',
+          '**+20%** more registered users managing appointments through the Private Area.',
+          '**47** countries where the design is live on the website.',
+          'Beyond the numbers, it became a flow the support team had to explain far less — the screen now answered the questions people used to call about.',
         ],
       },
     ],
     learned:
-      'Simplifying a flow rarely means removing steps. It means making people feel guided through every one of them. And designing close to how it gets built is what turns a clean Figma file into a flow that actually ships — in 47 countries.',
+      'The biggest takeaway was including users earlier in the process — it prevents assumptions from creeping in. And designing close to how it gets built is what turns a clean Figma file into a flow that actually ships, in 47 countries.',
   },
   {
     slug: 'cupra-faq-architecture',

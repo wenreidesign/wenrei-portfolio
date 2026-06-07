@@ -1016,6 +1016,7 @@ a.tag:focus-visible {
   gap: var(--space-sm);
   margin-top: clamp(3rem, 6vw, 5rem);
   padding-top: 2rem;
+  padding-bottom: 2rem;
   border-top: 1px solid var(--hairline);
 }
 
