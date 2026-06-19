@@ -16,7 +16,7 @@ const socials = [
         icon: <FaGithub />,
     },
     {
-        label: 'Instagram',
+        label: 'Instagram — accessibility content',
         href: 'https://www.instagram.com/wcaginaction?igsh=M2twaWdwZWY1MDFo&utm_source=qr',
         icon: <FaInstagram />,
     },

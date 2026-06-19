@@ -15,12 +15,32 @@ function ScrollToTop() {
   return null
 }
 
+// Moves focus to <main> on every route change so keyboard and screen-reader
+// users land at the start of the new page content (WCAG 2.4.3 Focus Order).
+// The 350ms delay lets Framer Motion finish its exit/enter transition before
+// we steal focus — avoids a race condition where the element isn't yet painted.
+function FocusMain() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    const id = setTimeout(() => {
+      const main = document.getElementById('main')
+      if (main) {
+        main.setAttribute('tabindex', '-1')
+        main.focus({ preventScroll: true })
+      }
+    }, 350)
+    return () => clearTimeout(id)
+  }, [pathname])
+  return null
+}
+
 export default function App() {
   const location = useLocation()
   return (
     <>
       <a href="#main" className="skip-link">Skip to content</a>
       <ScrollToTop />
+      <FocusMain />
       <Navbar />
       <main id="main">
         <AnimatePresence mode="wait">

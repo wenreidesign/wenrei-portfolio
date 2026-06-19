@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 595.28 380">
+  <!-- Generator: Adobe Illustrator 30.5.1, SVG Export Plug-In . SVG Version: 2.1.4 Build 3)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: none;
+      }
+
+      .st1 {
+        fill: #e6f1fb;
+        stroke: #185fa5;
+      }
+
+      .st1, .st2, .st3, .st4 {
+        stroke-miterlimit: 3.5;
+        stroke-width: .44px;
+      }
+
+      .st5 {
+        fill: #791f1f;
+      }
+
+      .st5, .st6, .st7, .st8, .st9, .st10, .st11, .st12, .st13 {
+        isolation: isolate;
+      }
+
+      .st5, .st6, .st7, .st8, .st9, .st10, .st12, .st13 {
+        font-family: PublicSans-Regular, 'Public Sans';
+      }
+
+      .st5, .st6, .st10, .st11 {
+        font-size: 12.26px;
+      }
+
+      .st2 {
+        fill: #f1efe8;
+        stroke: #5f5e5a;
+      }
+
+      .st6 {
+        fill: #0c447c;
+      }
+
+      .st7 {
+        fill: #3d3d3a;
+      }
+
+      .st7, .st8, .st9, .st12, .st13 {
+        font-size: 10.5px;
+      }
+
+      .st8 {
+        fill: #5f5e5a;
+      }
+
+      .st9 {
+        fill: #185fa5;
+      }
+
+      .st10 {
+        fill: #085041;
+      }
+
+      .st11 {
+        fill: #141413;
+        font-family: PublicSans-SemiBold, 'Public Sans';
+        font-weight: 600;
+      }
+
+      .st3 {
+        fill: #fcebeb;
+        stroke: #a32d2d;
+      }
+
+      .st12 {
+        fill: #0f6e56;
+      }
+
+      .st4 {
+        fill: #dcf1e9;
+        stroke: #0f6e56;
+      }
+
+      .st13 {
+        fill: #a32d2d;
+      }
+    </style>
+  </defs>
+  <text class="st11" transform="translate(134.43 54.83)"><tspan x="0" y="0">Before</tspan></text>
+  <text class="st7" transform="translate(98.03 70.59)"><tspan x="0" y="0">One page, no structure</tspan></text>
+  <rect class="st3" x="57.24" y="84.59" width="192.59" height="210.1" rx="10.5" ry="10.5"/>
+  <text class="st5" transform="translate(138.83 107.35)"><tspan x="0" y="0">/faqs</tspan></text>
+  <text class="st13" transform="translate(97.35 123.11)"><tspan x="0" y="0">one URL for everything</tspan></text>
+  <rect class="st2" x="78.25" y="137.12" width="150.57" height="22.76" rx="3.5" ry="3.5"/>
+  <text class="st8" transform="translate(101.7 152)"><tspan x="0" y="0">question about Ateca</tspan></text>
+  <rect class="st2" x="78.25" y="165.13" width="150.57" height="22.76" rx="3.5" ry="3.5"/>
+  <text class="st8" transform="translate(90.42 180.01)"><tspan x="0" y="0">question about MyCUPRA</tspan></text>
+  <rect class="st2" x="78.25" y="193.14" width="150.57" height="22.76" rx="3.5" ry="3.5"/>
+  <text class="st8" transform="translate(94.24 208.02)"><tspan x="0" y="0">question about warranty</tspan></text>
+  <rect class="st2" x="78.25" y="221.16" width="150.57" height="22.76" rx="3.5" ry="3.5"/>
+  <text class="st8" transform="translate(95.68 236.04)"><tspan x="0" y="0">question about services</tspan></text>
+  <rect class="st2" x="78.25" y="249.17" width="150.57" height="22.76" rx="3.5" ry="3.5"/>
+  <text class="st8" transform="translate(105.01 264.05)"><tspan x="0" y="0">...all mixed together</tspan></text>
+  <text class="st7" transform="translate(77.45 317.45)"><tspan x="0" y="0">Search engines could not index</tspan></text>
+  <text class="st7" transform="translate(118.33 333.21)"><tspan x="0" y="0">specific topics</tspan></text>
+  <path class="st0" d="M314.54,191.74l4.73,3.15-4.73,3.15"/>
+  <text class="st11" transform="translate(418.21 54.83)"><tspan x="0" y="0">After</tspan></text>
+  <text class="st7" transform="translate(356.02 70.59)"><tspan x="0" y="0">Hierarchy with dedicated pages</tspan></text>
+  <rect class="st4" x="327.94" y="84.59" width="210.1" height="43.77" rx="8.75" ry="8.75"/>
+  <text class="st10" transform="translate(418.27 100.35)"><tspan x="0" y="0">/faqs</tspan></text>
+  <text class="st12" transform="translate(367.27 114.36)"><tspan x="0" y="0">index with persistent menu</tspan></text>
+  <rect class="st1" x="336.69" y="140.62" width="192.59" height="35.02" rx="5.25" ry="5.25"/>
+  <text class="st6" transform="translate(377.49 155.5)"><tspan x="0" y="0">/faqs/models/ateca</tspan></text>
+  <text class="st9" transform="translate(369.18 168.63)"><tspan x="0" y="0">dedicated page, indexable</tspan></text>
+  <rect class="st1" x="336.69" y="184.39" width="192.59" height="35.02" rx="5.25" ry="5.25"/>
+  <text class="st6" transform="translate(391.44 199.27)"><tspan x="0" y="0">/faqs/mycupra</tspan></text>
+  <text class="st9" transform="translate(369.18 212.4)"><tspan x="0" y="0">dedicated page, indexable</tspan></text>
+  <rect class="st1" x="336.69" y="228.16" width="192.59" height="35.02" rx="5.25" ry="5.25"/>
+  <text class="st6" transform="translate(390.89 243.04)"><tspan x="0" y="0">/faqs/warranty</tspan></text>
+  <text class="st9" transform="translate(369.18 256.17)"><tspan x="0" y="0">dedicated page, indexable</tspan></text>
+  <text class="st7" transform="translate(336.16 317.45)"><tspan x="0" y="0">Each topic findable on its own in Google</tspan></text>
+</svg>

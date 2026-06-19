@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
@@ -8,6 +9,32 @@ const Arrow = ({ left }) => (
     <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 )
+
+function renderMetricValue(val) {
+  const m = val.match(/^([+]?)(\d+[a-z]*)([%+]?)$/i)
+  if (!m) return val
+  const [, pre, core, suf] = m
+  return (
+    <>
+      {pre && <sup className="metric-sym">{pre}</sup>}
+      {core}
+      {suf && <sup className="metric-sym">{suf}</sup>}
+    </>
+  )
+}
+
+function renderText(text) {
+  const parts = text.split(/(\*\*.*?\*\*|\*.*?\*)/g)
+  return parts.map((part, i) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return <strong key={i}>{part.slice(2, -2)}</strong>
+    }
+    if (part.startsWith('*') && part.endsWith('*')) {
+      return <em key={i}>{part.slice(1, -1)}</em>
+    }
+    return part
+  })
+}
 
 export default function CaseStudy() {
   const { slug } = useParams()
@@ -34,20 +61,18 @@ export default function CaseStudy() {
         <meta property="og:image" content="https://wenreidesign.com/og-image.jpg" />
         <meta property="og:url" content={`https://wenreidesign.com/work/${data.slug}`} />
       </Helmet>
+
       <div className="container">
         <Link to="/#work" className="case__back"><Arrow left /> Back to work</Link>
-
         <span className="case__client">{data.client}</span>
         <h1 className="display case__articleTitle">{data.articleTitle}</h1>
         <p className="lead case__intro">{data.intro}</p>
-
         <dl className="case__meta">
           <div><dt>Role</dt><dd>{data.meta.role}</dd></div>
           <div><dt>Team</dt><dd>{data.meta.team}</dd></div>
           <div><dt>Timeline</dt><dd>{data.meta.timeline}</dd></div>
           <div><dt>Scope</dt><dd>{data.meta.scope}</dd></div>
         </dl>
-
         <div className="case__hero-media">
           <img
             src={data.cover}
@@ -57,33 +82,268 @@ export default function CaseStudy() {
         </div>
       </div>
 
-      <div className="container">
-        {data.sections.map((s, i) =>
-          s.kind === 'image' ? (
-            <figure className="case__figure" key={i}>
-              <div className="case__figure-frame">
-                <img src={s.src} alt={s.alt || s.caption} className={s.fit === 'contain' ? 'fit-contain' : 'fit-cover'} loading="lazy" decoding="async" />
-              </div>
-              {s.caption && <figcaption>{s.caption}</figcaption>}
-            </figure>
-          ) : (
-            <section className="case__section" key={i}>
-              <h2>{s.heading}</h2>
-              {s.body.map((p, j) => <p key={j}>{p}</p>)}
-            </section>
-          )
-        )}
+      {data.sections.map((s, i) => {
 
+        if (s.kind === 'image') {
+          return (
+            <div className="container" key={i}>
+              <figure className="case__figure">
+                <div
+                  className={`case__figure-frame${s.naturalHeight ? ' case__figure-frame--natural' : ''}`}
+                  style={s.bg ? { background: s.bg } : undefined}
+                >
+                  <img src={s.src} alt={s.alt || s.caption} className={s.fit === 'contain' ? 'fit-contain' : 'fit-cover'} loading="lazy" />
+                </div>
+                {s.caption && <figcaption>{s.caption}</figcaption>}
+              </figure>
+            </div>
+          )
+        }
+
+        if (s.kind === 'gallery') {
+          if (!s.images) return null
+          return (
+            <div className="case__gallery" key={i}>
+              {s.label && <span className="case__gallery-label">{s.label}</span>}
+              <div className="case__gallery-track">
+                {s.images.map((img, j) => (
+                  <div className="case__gallery-item" key={j}>
+                    {/* Fallback to caption if alt is missing; empty string only if
+                        the image is genuinely decorative (WCAG 1.1.1) */}
+                    <img
+                      src={img.src}
+                      alt={img.alt || img.caption || ''}
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
+              </div>
+              {s.caption && <span className="case__gallery-caption">{s.caption}</span>}
+            </div>
+          )
+        }
+
+        if (s.kind === 'version-compare') {
+          return (
+            <div className="container" key={i}>
+              <div className="case__version-compare">
+                {s.versions.map((v, j) => (
+                  <Fragment key={j}>
+                    {j > 0 && <div className="case__version-compare-divider" aria-hidden="true" />}
+                    <div className="case__version-compare-content">
+                      <span className="case__version-compare-label">{v.label}</span>
+                      <div className="case__figure-frame">
+                        <img src={v.src} alt={v.alt || v.caption} loading="lazy" />
+                      </div>
+                      {v.caption && <p className="case__version-compare-caption">{v.caption}</p>}
+                    </div>
+                  </Fragment>
+                ))}
+              </div>
+            </div>
+          )
+        }
+
+        if (s.kind === 'before-after') {
+          return (
+            <div className="container" key={i}>
+              <div className="case__before-after">
+                {[{ ...s.before, tag: 'Before' }, { ...s.after, tag: 'After' }].map((item, j) => (
+                  <figure className="case__before-after-item" key={j}>
+                    <span className="case__before-after-tag">{item.tag}</span>
+                    <div className="case__figure-frame">
+                      <img src={item.src} alt={item.alt || item.caption} loading="lazy" className="fit-cover" />
+                    </div>
+                    {item.caption && <figcaption>{item.caption}</figcaption>}
+                  </figure>
+                ))}
+              </div>
+            </div>
+          )
+        }
+
+        if (s.kind === 'figma-embed') {
+          // Use a specific title so screen readers announce the frame content (WCAG 4.1.2)
+          const iframeTitle = s.label
+            ? `Interactive prototype: ${s.label}`
+            : 'Interactive prototype'
+          return (
+            <div className="case__figma-embed" key={i}>
+              {s.label && <span className="case__gallery-label">{s.label}</span>}
+              <iframe src={s.src} allowFullScreen loading="lazy" title={iframeTitle} />
+              {s.caption && <span className="case__gallery-caption">{s.caption}</span>}
+            </div>
+          )
+        }
+
+        if (s.kind === 'video') {
+          // Videos are muted UI demos (no audio track) — WCAG 1.2.1 requires a text
+          // alternative for video-only prerecorded content. We use a visually hidden
+          // description + title on the video element itself for AT.
+          const videoLabel = s.label || s.intro || 'Product design demo video'
+          const videoDesc  = s.intro  || s.label || null
+          return (
+            <div className="case__figma-embed" key={i}>
+              {s.label && <span className="case__gallery-label">{s.label}</span>}
+              {s.intro  && <p className="case__video-intro">{s.intro}</p>}
+              <video
+                src={s.src}
+                autoPlay
+                loop
+                muted
+                playsInline
+                title={videoLabel}
+                aria-label={videoLabel}
+              />
+              {/* Text alternative for AT when label/intro aren't already rendered */}
+              {!s.label && !s.intro && videoDesc && (
+                <p className="sr-only">{videoDesc}</p>
+              )}
+              {s.caption && <span className="case__gallery-caption">{s.caption}</span>}
+            </div>
+          )
+        }
+
+        if (s.kind === 'stat') {
+          const grid = (
+            <div className={`case-stats${s.dark ? ' case-stats--dark' : ''}`}>
+              {s.items.map((item, j) => (
+                <div className="case-stat" key={j}>
+                  <span className="case-stat-value">
+                    {s.dark ? renderMetricValue(item.value) : item.value}
+                  </span>
+                  <span className="case-stat-label">{item.label}</span>
+                </div>
+              ))}
+            </div>
+          )
+          if (s.companion) {
+            return (
+              <div className="container" key={i}>
+                <div className="case__section">
+                  {s.heading && <h2>{s.heading}</h2>}
+                  <div className="case-stat-row">
+                    {grid}
+                    <p className="case-stat-companion">{s.companion}</p>
+                  </div>
+                </div>
+              </div>
+            )
+          }
+          return (
+            <div className="container" key={i}>
+              {grid}
+            </div>
+          )
+        }
+
+        if (s.kind === 'livelinks') {
+          return (
+            <div className="container" key={i}>
+              <div className="case__livelinks">
+                {s.links.map((link, j) => (
+                  <a
+                    key={j}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="case__livelink"
+                  >
+                    {link.label}
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M7 17L17 7M17 7H7M17 7v10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )
+        }
+
+        if (s.kind === 'callout') {
+          if (s.variant === 'insight') {
+            return (
+              <div className="container" key={i}>
+                <div className="case__callout case__callout--insight">
+                  {s.label && <span className="callout__label">{s.label}</span>}
+                  {s.value && <span className="callout__value">{renderMetricValue(s.value)}</span>}
+                  {s.text && <span className="callout__text">{s.text}</span>}
+                </div>
+              </div>
+            )
+          }
+          if (s.variant === 'objective') {
+            return (
+              <div className="container" key={i}>
+                <div className="case__callout case__callout--objective">
+                  {s.items.map((item, j) => (
+                    <div className="callout__objective-item" key={j}>
+                      <span className="callout__objective-num">{j + 1}<span className="callout__objective-dot">.</span></span>
+                      <span className="callout__objective-text">{renderText(item)}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )
+          }
+          if (s.variant === 'question') {
+            return (
+              <div className="container" key={i}>
+                <div className="case__callout case__callout--question">
+                  <p>{s.text}</p>
+                </div>
+              </div>
+            )
+          }
+          if (s.variant === 'takeaway') {
+            return (
+              <div className="container" key={i}>
+                <div className="case__callout case__callout--takeaway">
+                  {s.label && <span className="callout__label">{s.label}</span>}
+                  <p>{s.text}</p>
+                </div>
+              </div>
+            )
+          }
+          if (s.variant === 'quote') {
+            return (
+              <div className="container" key={i}>
+                <div className="case__callout case__callout--quote">
+                  <p>{s.text}</p>
+                </div>
+              </div>
+            )
+          }
+        }
+
+        return (
+          <div className="container" key={i}>
+            <section className="case__section">
+              {s.heading && <h2>{s.heading}</h2>}
+              {s.body.map((p, j) => (
+                <p key={j}>{renderText(p)}</p>
+              ))}
+            </section>
+          </div>
+        )
+      })}
+
+      <div className="container">
         <div className="case__learned">
           <h4>What I took away</h4>
-          <p>{data.learned}</p>
+          <p>{renderText(data.learned)}</p>
         </div>
-
-        <div className="container case__nav" style={{ paddingLeft: 0, paddingRight: 0 }}>
+        {data.conclusion && (
+          <div className="case__conclusion">
+            <p>{renderText(data.conclusion)}</p>
+          </div>
+        )}
+        <div className="case__nav">
           <Link to="/#work" className="btn btn--ghost"><Arrow left /> All work</Link>
-          <Link to={`/work/${next.slug}`} className="btn btn--primary">Next case <Arrow /></Link>
+          <Link to={`/work/${next.slug}`} className="btn btn--primary" aria-label={`Next case: ${next.cardTitle}`}>Next case <Arrow /></Link>
         </div>
       </div>
+
     </motion.article>
   )
 }

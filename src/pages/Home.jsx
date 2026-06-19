@@ -43,14 +43,20 @@ const E = { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
 
 export default function Home() {
   const [wordIndex, setWordIndex] = useState(0)
+  const prefersReducedMotion =
+    typeof window !== 'undefined' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   useEffect(() => {
+    // Stop rotation for users who prefer reduced motion (WCAG 2.3.3)
+    if (prefersReducedMotion) return
+
     const intervalId = setInterval(() => {
       setWordIndex((currentIndex) => (currentIndex + 1) % rotatingWords.length)
     }, 2200)
 
     return () => clearInterval(intervalId)
-  }, [])
+  }, [prefersReducedMotion])
 
   return (
     <div>
@@ -80,15 +86,19 @@ export default function Home() {
             <br />
 
             <span className="hero__second-line">
-              <span className="hero__rotating-word">
+              {/* Static alternative for screen readers — announced once, never interrupts */}
+              <span className="sr-only">consistent</span>
+
+              {/* Visual rotating word — hidden from AT to avoid repeated announcements */}
+              <span className="hero__rotating-word" aria-hidden="true">
                 <AnimatePresence mode="popLayout">
                   <motion.span
                     key={rotatingWords[wordIndex]}
-                    initial={{ opacity: 0, y: 18 }}
+                    initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -18 }}
+                    exit={prefersReducedMotion ? {} : { opacity: 0, y: -18 }}
                     transition={{
-                      duration: 0.35,
+                      duration: prefersReducedMotion ? 0 : 0.35,
                       ease: [0.16, 1, 0.3, 1]
                     }}
                   >
@@ -97,7 +107,7 @@ export default function Home() {
                 </AnimatePresence>
               </span>
 
-              {' '}products, end to end.
+              {' '}products,{' '}<span className="hero__end-line">end to end.</span>
             </span>
           </motion.h1>
 
@@ -143,7 +153,7 @@ export default function Home() {
       </section>
 
       {/* WORK */}
-      <section className="section" id="work">
+      <section className="section" id="work" tabIndex="-1">
         <div className="container">
           <Reveal className="section__head">
             <h2 className="h2">Selected work<span className="accent">.</span></h2>
@@ -160,7 +170,7 @@ export default function Home() {
       </section>
 
       {/* ABOUT */}
-      <section className="section" id="about">
+      <section className="section" id="about" tabIndex="-1">
         <div className="container">
           <Reveal className="section__head">
             <h2 className="h2">About</h2>
@@ -190,16 +200,16 @@ export default function Home() {
               <p>
                 Over the past year I've gone deep into <strong>Design Systems</strong> and{' '}
                 <strong>Accessibility</strong>. Auditing sites pushed me into code for real. I now also
-                work as a <br /><strong>Full Stack developer</strong>, and I cut friction with engineering before
+                work as a <strong>Full Stack developer</strong>, and I cut friction with engineering before
                 it happens.
               </p>
 
               <blockquote className="about__quote">
-                <strong>
+                <p>
                   Understanding what I design.
                   <br />
                   Building what I understand.
-                </strong>
+                </p>
               </blockquote>
 
             </Reveal>

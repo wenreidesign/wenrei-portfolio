@@ -56,8 +56,14 @@ export default function Navbar() {
         </nav>
 
         <div className="nav__right">
-          <button className="lang" type="button" title="More languages coming soon" disabled>
-            <span>EN</span> / ES
+          <button
+            className="lang"
+            type="button"
+            aria-label="Language switcher — more languages coming soon"
+            aria-disabled="true"
+            disabled
+          >
+            <span aria-hidden="true">EN</span> / ES
           </button>
           <button
             className="nav__toggle"
