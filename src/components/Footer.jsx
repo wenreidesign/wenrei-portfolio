@@ -1,9 +1,19 @@
 import logoWhite from '../assets/logo-wenrei-white.svg?url'
+
 const Arrow = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path
+      d="M5 12h14M13 6l6 6-6 6"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 )
+
+const contactEmail = 'wenreidesign@gmail.com'
+const contactHref = `mailto:${contactEmail}?subject=Portfolio contact — WENREI DESIGN`
 
 export default function Footer() {
   return (
@@ -13,7 +23,8 @@ export default function Footer() {
           <h2 className="h2">
             Let’s build something <span className="accent">clear.</span>
           </h2>
-          <a className="btn btn--light" href="mailto:wenreidesign@gmail.com">
+
+          <a className="btn btn--light" href={contactHref}>
             Start a conversation <Arrow />
           </a>
         </div>
@@ -27,6 +38,7 @@ export default function Footer() {
                 className="footer__logo"
               />
             </span>
+
             <p className="footer__tag">
               Designed with clarity. Built with systems. Accessible for everyone. Shipped by one.
             </p>
@@ -37,13 +49,20 @@ export default function Footer() {
               <h3>Explore</h3>
               <a href="/#work">Work</a>
               <a href="/#about">About</a>
-              <a href="mailto:wenreidesign@gmail.com">Contact</a>
-           </div>
+              <a href={contactHref}>Contact</a>
+            </div>
+
             <div className="footer__col">
               <h3>Elsewhere</h3>
-              <a href="https://www.linkedin.com/in/ramon-camacho-rojas" target="_blank" rel="noreferrer">LinkedIn</a>
-              <a href="https://github.com/wenreidesign" target="_blank" rel="noreferrer">GitHub</a>
-              <a href="https://www.instagram.com/wcaginaction?igsh=M2twaWdwZWY1MDFo&utm_source=qr" target="_blank" rel="noreferrer">Instagram</a>
+              <a href="https://www.linkedin.com/in/ramon-camacho-rojas" target="_blank" rel="noreferrer">
+                LinkedIn
+              </a>
+              <a href="https://github.com/wenreidesign" target="_blank" rel="noreferrer">
+                GitHub
+              </a>
+              <a href="https://www.instagram.com/wcaginaction?igsh=M2twaWdwZWY1MDFo&utm_source=qr" target="_blank" rel="noreferrer">
+                Instagram
+              </a>
             </div>
           </div>
         </div>
