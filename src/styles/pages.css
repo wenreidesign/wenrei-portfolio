@@ -580,7 +580,6 @@ a.tag:focus-visible {
 
 .about__quote {
   margin-top: 2.5rem;
-  margin-bottom: clamp(3rem, 6vw, 5rem);
   border-left: 3px solid var(--fuchsia);
   padding: 1.25rem 0 1.25rem 1.75rem;
 }
@@ -1160,6 +1159,31 @@ a.tag:focus-visible {
   padding: 0 clamp(1.5rem, 4vw, 4rem);
 }
 
+/* Gallery grid (2–3 images in a row, each with caption) */
+.case__gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.case__gallery-grid-item {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.case__gallery-grid-item .case__figure-frame {
+  flex: 1;
+}
+
+.case__gallery-grid-item figcaption {
+  font-size: 0.85rem;
+  color: var(--ink-60);
+  line-height: 1.5;
+}
+
 /* Figma embed & video */
 .case__figma-embed {
   width: 100vw;
@@ -1348,6 +1372,7 @@ a.tag:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
 }
 
 .callout__objective-item {
@@ -1531,6 +1556,8 @@ a.tag:focus-visible {
   .hero__lead        { max-width: 48ch; }
   .hero__actions     { margin-top: 4rem; }
 
+  .case__gallery-grid { grid-template-columns: 1fr; }
+
   .hero__socials {
     position: absolute;
     right: 2rem;
@@ -1593,7 +1620,7 @@ a.tag:focus-visible {
 
   .case-card__media {
     position: relative;
-    height: 100%;
+    height: 420px;
     background: var(--black);
     overflow: hidden;
   }

@@ -17,6 +17,15 @@ import faqAntes from '../assets/faq-antes.jpg'
 import faqDespues from '../assets/faq-despues.jpg'
 import faqSubcategoryImage from '../assets/faq-subcategory-image.jpg'
 import faqArchitecture from '../assets/faq_before_after_architecture.svg'
+import gencatOldFlow from '../assets/gencat-old-flow.jpg'
+import gencatBenchmark from '../assets/gencat-benchmark.jpg'
+import gencatIdSystem from '../assets/gencat-id-system.jpg'
+import gencatModal from '../assets/gencat-modal.jpg'
+import gencatOldInfo from '../assets/gencat-old-info.jpg'
+import gencatNewAccordion from '../assets/gencat-new-accordion.jpg'
+import gencatUnavailable from '../assets/gencat-unavailable.jpg'
+import gencatDeadline from '../assets/gencat-deadline.jpg'
+import gencatBot from '../assets/gencat-bot.jpg'
 
 export const cases = [
   {
@@ -257,6 +266,133 @@ export const cases = [
     conclusion: null,
   },
   {
+    slug: 'gencat-public-procedure',
+    cover: gencatCertificat,
+    coverFit: 'cover',
+    client: 'Public Administration',
+    cardTitle: 'Citizens gave up before they could file a simple form',
+    articleTitle: 'Citizens wanted to file a declaration. First they had to survive the digital ID step.',
+    summary: 'Redesigning a government service so the identification maze stopped blocking people from even starting.',
+    tags: ['Heuristic Evaluation', 'Service design', 'Progressive disclosure', 'Prototyping'],
+    meta: {
+      role: 'Product Designer',
+      team: 'A digital transformation consultancy, for a public administration',
+      timeline: '2023 – 2024',
+      scope: 'Public administration digital procedure',
+      tools: 'Figma',
+    },
+    intro: "On a public administration's online portal, filing a senior official's asset declaration began with a wall: choosing between four digital identification systems, each with its own process. Many got lost there and never reached the form. I redesigned the flow so getting in was simple and the information was clear.",
+    sections: [
+      {
+        kind: 'text',
+        heading: 'It started with the "simple" trámite that wasn\'t.',
+        body: [
+          'The public administration wanted to improve the experience of its digital services. The case I worked on was one of the "simple" ones: filing a senior official\'s declaration of activities and assets. Simple in theory, because in practice citizens hit a wall of friction before they even started.',
+          'The same pattern repeated across many of the portal\'s services, so solving it well here would serve as a model for the rest.',
+        ],
+      },
+      {
+        kind: 'callout',
+        variant: 'question',
+        text: 'How do you make filing an official government form simple, even for someone with low digital confidence?',
+      },
+      {
+        kind: 'text',
+        heading: 'I evaluated the old flow. It broke in two places.',
+        body: [
+          'I ran a heuristic evaluation of the existing flow and found two compounding problems.',
+          '**Identification was a maze.** To start, citizens had to identify themselves digitally by choosing between four different systems, with no guidance on which to pick. And getting any of them was itself a long, complex process. The result: three loops, one dead end, and one path that actually reached the form.',
+          '**The service information was a wall.** Once inside, the service details (what it is, deadlines, documents, requirements) were presented as one long block, forcing endless scrolling to find anything.',
+        ],
+      },
+      {
+        kind: 'image',
+        src: gencatOldFlow,
+        fit: 'contain',
+        naturalHeight: true,
+        caption: 'The old flow: four identification systems, each branching into its own process. Most users never reached the form.',
+        alt: 'User flow diagram showing old government procedure with four identification paths and multiple dead ends',
+      },
+      {
+        kind: 'text',
+        heading: 'Then I looked at how other governments handle it.',
+        body: [
+          'I analyzed how leading digital government services solve this, mainly international references in public-sector digital transformation.',
+          'On identification, every reference requires you to identify yourself for official procedures. It is a legal and security requirement, not something you can remove. The best ones offer several methods but better organized and with less friction.',
+          'On information, the references structure complex services with a navigable content index and progressive disclosure: each topic in its own section, no walls of text. That pattern was my direct reference for restructuring the service information.',
+        ],
+      },
+      {
+        kind: 'image',
+        src: gencatBenchmark,
+        fit: 'contain',
+        naturalHeight: true,
+        caption: 'International references: navigable content index and progressive disclosure as the standard pattern for complex government services.',
+        alt: 'Benchmark comparison of international government digital services showing content index and progressive disclosure patterns',
+      },
+      {
+        kind: 'text',
+        heading: 'So I redesigned the way in.',
+        body: [
+          'This was not about removing identification (it is legally required). It was about taking friction out of the wrong place and making the information clear.',
+          '**A way in without an upfront block.** The modal separates two things the old flow bundled together: filling in the declaration, and signing it. You can enter and fill the form without a certificate. Signing is still required at the end, to file with legal validity. What changes is that it no longer blocks the start.',
+          '**Progressive disclosure instead of infinite scroll.** I restructured the service information into accordion sections (what it is, who it is for, deadlines, documents, requirements), following the international reference pattern. The goal: keep the key information on screen, with no endless scrolling and no modals that break navigation.',
+        ],
+      },
+      {
+        kind: 'callout',
+        variant: 'insight',
+        label: 'The key decision',
+        text: 'None of the international references separated filling from signing. Decoupling those two steps was the move that removed the identification wall without touching the legal requirement.',
+      },
+      {
+        kind: 'image',
+        src: gencatModal,
+        fit: 'cover',
+        caption: 'The redesigned entry modal: two clear paths in, without the identification maze blocking the start.',
+        alt: 'Redesigned government procedure entry modal showing two clear access options',
+      },
+      {
+        kind: 'before-after',
+        before: {
+          src: gencatOldInfo,
+          caption: 'Before: all service information in one long block. Finding anything meant scrolling through everything.',
+          alt: 'Old government service page with all information in a single scrollable block',
+        },
+        after: {
+          src: gencatNewAccordion,
+          caption: 'After: accordion sections. Each topic in its own place, nothing buried.',
+          alt: 'Redesigned government service page with accordion sections for progressive disclosure',
+        },
+      },
+      {
+        kind: 'text',
+        heading: 'Designing the whole flow, not just the happy path.',
+        body: [
+          'I also designed the exception states a citizen might hit: service unavailable with an email alert, out of deadline, and a contextual help chat. In a public service, edge cases are not edge cases. They are the moment someone who already struggles with digital services hits a wall with no exit.',
+        ],
+      },
+      {
+        kind: 'gallery',
+        images: [
+          { src: gencatUnavailable, caption: 'Service unavailable: email alert so the user can come back when it reopens.', alt: 'Modal showing service unavailable state with email notification field' },
+          { src: gencatDeadline, caption: 'Out of deadline: CTA disabled, clear warning. No dead end.', alt: 'Procedure page with disabled CTA and deadline warning state' },
+          { src: gencatBot, caption: 'Contextual help chat: always visible, never intrusive.', alt: 'Help chatbot open on the procedure page' },
+        ],
+      },
+      {
+        kind: 'callout',
+        variant: 'objective',
+        label: 'Design goals',
+        items: [
+          'Get citizens to the form without getting lost in the identification maze',
+          'Let them understand the service without fighting a wall of text',
+        ],
+      },
+    ],
+    learned: "That in public services, friction is rarely where it seems. The problem was not having to identify yourself: that is necessary. It was that the step was poorly designed and placed where it blocked people most. And that studying references helps as much for copying what works as for spotting what no one solves well. Seeing that none of the references separated filling from signing gave me room to propose something different, while respecting the legal requirements.",
+  },
+  {
     slug: 'cupra-faq-architecture',
     cover: cupraFaqs,
     coverFit: 'cover',
@@ -360,57 +496,6 @@ export const cases = [
       },
     ],
     learned: "The biggest takeaway was how much information architecture and SEO depend on each other. A clean structure isn't just tidier: it's what makes content discoverable in the first place. I'd also push earlier for access to post-launch metrics. Designing toward goals is right, but being able to measure whether the structure actually moved discoverability would close the loop and make the next iteration sharper.",
-  },
-  {
-    slug: 'gencat-public-procedure',
-    cover: gencatCertificat,
-    coverFit: 'cover',
-    client: 'Public Administration',
-    cardTitle: 'Citizens gave up before they could file a simple form',
-    articleTitle: 'Citizens had to understand legal language before they could even start the form.',
-    summary: 'Redesigning a government service so the identification maze stopped blocking people from even starting.',
-    tags: ['Heuristic Evaluation', 'Service design', 'Progressive disclosure', 'Prototyping'],
-    meta: {
-      role: 'Studio Senior — Deloitte Digital',
-      team: 'Design studio, public-sector stakeholders',
-      timeline: '2023 – 2024',
-      scope: 'Public administration digital procedure',
-      tools: 'Heuristic evaluation, IA, prototyping',
-    },
-    intro: "Public-sector procedures carry a particular weight: people have no choice but to complete them, often under stress, sometimes with low digital confidence. When the entry point is confusing, citizens don't bounce to a competitor — they get stuck, or they give up on something they legally need to do.",
-    sections: [
-      {
-        kind: 'text',
-        heading: 'The stakes of a government flow',
-        body: [
-          'This was a declaration procedure for public administration — the kind of task where a digital certificate, legal language, and strict requirements collide with a citizen who just needs to get it done. The barrier was not one screen; it was the very first moment of access.',
-          'My starting point was a heuristic evaluation of the existing flow: walking the journey against usability principles to locate exactly where friction, ambiguity, and dead ends lived.',
-        ],
-      },
-      {
-        kind: 'image',
-        src: gencatCertificat,
-        fit: 'cover',
-        caption: 'The entry modal — clarifying the choice between proceeding with a digital certificate or without it, before the user commits to a path.',
-        alt: 'Government procedure entry modal showing digital certificate and alternative access options',
-      },
-      {
-        kind: 'text',
-        heading: 'Redesigning the entry point',
-        body: [
-          'I reworked the access and the information architecture so the procedure announces, up front, what it needs and what the user is about to do. The critical decision — proceed with a digital certificate or not — is surfaced clearly at the door, instead of trapping people in a flow they cannot finish without credentials they do not have yet.',
-          'In public services, clarity is not a nicety. It is the difference between a citizen completing their obligation and abandoning it.',
-        ],
-      },
-      {
-        kind: 'text',
-        heading: 'Accessibility as the baseline',
-        body: [
-          "A government service has to work for everyone — that's not a target, it's the requirement. Accessibility is my flag for a reason: it's empathy turned into technique, designing so nobody is left outside. Auditing flows like this is exactly what pushed me into reading and understanding code, so I can design solutions that hold up when they're actually built.",
-        ],
-      },
-    ],
-    learned: "Designing for public administration reset my definition of user-friendly. When the person on the other side has no alternative, every moment of confusion is a real cost. Clarity at the entry point is the most respectful thing you can design.",
   },
 ]
 

@@ -103,19 +103,21 @@ export default function CaseStudy() {
         if (s.kind === 'gallery') {
           if (!s.images) return null
           return (
-            <div className="case__gallery" key={i}>
+            <div className="container" key={i}>
               {s.label && <span className="case__gallery-label">{s.label}</span>}
-              <div className="case__gallery-track">
+              <div className="case__gallery-grid">
                 {s.images.map((img, j) => (
-                  <div className="case__gallery-item" key={j}>
-                    {/* Fallback to caption if alt is missing; empty string only if
-                        the image is genuinely decorative (WCAG 1.1.1) */}
-                    <img
-                      src={img.src}
-                      alt={img.alt || img.caption || ''}
-                      loading="lazy"
-                    />
-                  </div>
+                  <figure className="case__gallery-grid-item" key={j}>
+                    <div className="case__figure-frame">
+                      <img
+                        src={img.src}
+                        alt={img.alt || img.caption || ''}
+                        loading="lazy"
+                        className="fit-cover"
+                      />
+                    </div>
+                    {img.caption && <figcaption>{img.caption}</figcaption>}
+                  </figure>
                 ))}
               </div>
               {s.caption && <span className="case__gallery-caption">{s.caption}</span>}
@@ -276,6 +278,7 @@ export default function CaseStudy() {
             return (
               <div className="container" key={i}>
                 <div className="case__callout case__callout--objective">
+                  {s.label && <span className="callout__label">{s.label}</span>}
                   {s.items.map((item, j) => (
                     <div className="callout__objective-item" key={j}>
                       <span className="callout__objective-num">{j + 1}<span className="callout__objective-dot">.</span></span>
