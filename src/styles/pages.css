@@ -154,6 +154,8 @@
 
 .marquee__track span::after {
   content: '';
+  display: inline-block;
+  flex-shrink: 0;
   width: 5px;
   height: 5px;
   border-radius: 50%;
