@@ -134,7 +134,7 @@
   white-space: nowrap;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-  animation: marquee-appear 0.25s ease both;
+  animation: marquee-appear 0.3s 0.15s ease both;
 }
 
 @keyframes marquee-appear {
@@ -177,6 +177,7 @@
 .marquee:focus-within .marquee__track {
   animation-play-state: paused;
 }
+
 
 
 /* ============================================================
