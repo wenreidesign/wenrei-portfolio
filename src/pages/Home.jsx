@@ -182,9 +182,9 @@ export default function Home() {
           </Reveal>
 
           <div className="about">
-            <aside className="about__image">
+            <div className="about__image">
               <img src="/profile.jpg" alt="Portrait of Ramón Camacho" />
-            </aside>
+            </div>
             <Reveal className="about__body">
               <p>
                 I'm <strong>Ramón Camacho</strong>, a Product Designer focused on web apps and B2C platforms. I work with{' '}
