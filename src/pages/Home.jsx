@@ -43,6 +43,7 @@ const E = { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
 
 export default function Home() {
   const [wordIndex, setWordIndex] = useState(0)
+  const [marqueeVisible, setMarqueeVisible] = useState(false)
   const prefersReducedMotion =
     typeof window !== 'undefined' &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -57,6 +58,10 @@ export default function Home() {
 
     return () => clearInterval(intervalId)
   }, [prefersReducedMotion])
+
+  useEffect(() => {
+    setMarqueeVisible(true)
+  }, [])
 
   return (
     <div>
@@ -242,7 +247,7 @@ export default function Home() {
       <CircuitSection />
 
       {/* SKILLS */}
-      <div className="marquee" aria-hidden="true">
+      <div className="marquee" aria-hidden="true" style={{ opacity: marqueeVisible ? undefined : 0 }}>
         <div className="marquee__track">
           <span>{skills.map((s) => <span key={s}>{s}</span>)}</span>
           <span>{skills.map((s) => <span key={s + '2'}>{s}</span>)}</span>
