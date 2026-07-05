@@ -1,6 +1,7 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import { AnimatePresence } from 'framer-motion'
+import { LanguageProvider } from './contexts/LanguageContext.jsx'
 import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
 import Home from './pages/Home.jsx'
@@ -37,6 +38,7 @@ function FocusMain() {
 export default function App() {
   const location = useLocation()
   return (
+    <LanguageProvider>
     <>
       <a href="#main" className="skip-link">Skip to content</a>
       <ScrollToTop />
@@ -53,5 +55,6 @@ export default function App() {
       </main>
       <Footer />
     </>
+    </LanguageProvider>
   )
 }

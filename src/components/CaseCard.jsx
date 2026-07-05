@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useLanguage } from '../contexts/LanguageContext.jsx'
 
 const Arrow = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -7,8 +8,10 @@ const Arrow = () => (
 )
 
 export default function CaseCard({ data }) {
+  const { t } = useLanguage()
+
   return (
-    <Link to={`/work/${data.slug}`} className="case-card" aria-label={`View case study: ${data.cardTitle}`}>
+    <Link to={`/work/${data.slug}`} className="case-card" aria-label={`${t('caseCard.cta')}: ${data.cardTitle}`}>
       <div className="case-card__media">
         <img
           src={data.cover}
@@ -29,12 +32,12 @@ export default function CaseCard({ data }) {
         <h3 className="h3">{data.cardTitle}</h3>
         <p>{data.summary}</p>
         <div className="case-card__tags">
-          {data.tags.map((t) => (
-            <span className="tag" key={t}>{t}</span>
+          {data.tags.map((tag) => (
+            <span className="tag" key={tag}>{tag}</span>
           ))}
         </div>
         <span className="case-card__cta">
-          View case <Arrow />
+          {t('caseCard.cta')} <Arrow />
         </span>
       </div>
     </Link>

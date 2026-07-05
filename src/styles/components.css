@@ -130,7 +130,13 @@
   border: 1px solid var(--hairline);
   border-radius: 100px;
   padding: 0.35rem 0.7rem;
-  cursor: not-allowed;
+  cursor: pointer;
+  transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
+}
+
+.lang:hover {
+  border-color: var(--black);
+  color: var(--ink-60);
 }
 
 .lang span {
@@ -343,6 +349,16 @@
   max-width: 30ch;
 }
 
+html[lang="es"] .footer__brand {
+  max-width: 36ch;
+}
+
+@media (min-width: 701px) and (max-width: 1023px) {
+  html[lang="es"] .footer__brand {
+    max-width: 30ch;
+  }
+}
+
 .footer__brand .footer__tag {
   color: rgba(248, 250, 252, 0.6);
   font-size: 0.92rem;
@@ -418,5 +434,10 @@
     letter-spacing: -0.02em;
     padding: 0.7rem 0;
     border-bottom: 1px solid var(--hairline);
+  }
+
+  .lang--mobile {
+    margin-top: 1rem;
+    align-self: flex-start;
   }
 }

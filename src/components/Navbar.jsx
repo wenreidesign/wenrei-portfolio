@@ -1,17 +1,19 @@
 import { useState, useEffect } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import Logo from './Logo.jsx'
-
-const links = [
-  { label: 'Work', to: '/#work' },
-  { label: 'About', to: '/#about' },
-  { label: 'Contact', to: '/#contact' },
-]
+import { useLanguage } from '../contexts/LanguageContext.jsx'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const location = useLocation()
+  const { lang, setLang, t } = useLanguage()
+
+  const links = [
+    { label: t('nav.work'),    to: '/#work' },
+    { label: t('nav.about'),   to: '/#about' },
+    { label: t('nav.contact'), to: '/#contact' },
+  ]
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -24,7 +26,15 @@ export default function Navbar() {
     setOpen(false)
   }, [location])
 
-  // Smooth-scroll to a section when the hash points to one on the home page.
+  useEffect(() => {
+    if (!open) return
+    const handleClickOutside = (e) => {
+      if (!e.target.closest('.nav')) setOpen(false)
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [open])
+
   const handleAnchor = (e, to) => {
     const [, hash] = to.split('#')
     if (location.pathname === '/' && hash) {
@@ -33,6 +43,8 @@ export default function Navbar() {
       setOpen(false)
     }
   }
+
+  const toggleLang = () => setLang(lang === 'en' ? 'es' : 'en')
 
   return (
     <header className={`nav ${scrolled ? 'nav--scrolled' : ''}`}>
@@ -59,11 +71,13 @@ export default function Navbar() {
           <button
             className="lang"
             type="button"
-            aria-label="Language switcher — more languages coming soon"
-            aria-disabled="true"
-            disabled
+            aria-label={t('nav.langLabel')}
+            onClick={toggleLang}
           >
-            <span aria-hidden="true">EN</span> / ES
+            {lang === 'en'
+              ? <><span aria-hidden="true">EN</span> / ES</>
+              : <>EN / <span aria-hidden="true">ES</span></>
+            }
           </button>
           <button
             className="nav__toggle"
@@ -85,6 +99,17 @@ export default function Navbar() {
               {l.label}
             </NavLink>
           ))}
+          <button
+            className="lang lang--mobile"
+            type="button"
+            aria-label={t('nav.langLabel')}
+            onClick={toggleLang}
+          >
+            {lang === 'en'
+              ? <><span aria-hidden="true">EN</span> / ES</>
+              : <>EN / <span aria-hidden="true">ES</span></>
+            }
+          </button>
         </nav>
       )}
     </header>

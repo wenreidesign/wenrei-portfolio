@@ -1,4 +1,5 @@
 import logoWhite from '../assets/logo-wenrei-white.svg?url'
+import { useLanguage } from '../contexts/LanguageContext.jsx'
 
 const Arrow = () => (
   <svg
@@ -25,23 +26,25 @@ const contactHref = `https://mail.google.com/mail/?view=cm&fs=1&to=${contactEmai
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
+  const { t } = useLanguage()
 
   return (
     <footer className="footer" id="contact">
       <div className="container">
         <div className="footer__cta">
-          <h2 className="h2">
-            Let’s build something <span className="accent">clear.</span>
-          </h2>
+          <h2
+            className="h2"
+            dangerouslySetInnerHTML={{ __html: t('footer.cta') }}
+          />
 
           <a
             className="btn btn--light"
             href={contactHref}
             target="_blank"
             rel="noreferrer"
-            aria-label="Start a conversation by email"
+            aria-label={t('footer.ctaBtn')}
           >
-            Start a conversation <Arrow />
+            {t('footer.ctaBtn')} <Arrow />
           </a>
         </div>
 
@@ -55,9 +58,7 @@ export default function Footer() {
               />
             </span>
 
-            <p className="footer__tag">
-              Designed with clarity. Built with systems. Accessible for everyone. Shipped by one.
-            </p>
+            <p className="footer__tag">{t('footer.tagline')}</p>
 
             <a
               className="footer__email"
@@ -71,16 +72,16 @@ export default function Footer() {
 
           <div className="footer__links">
             <div className="footer__col">
-              <h3>Explore</h3>
-              <a href="/#work">Work</a>
-              <a href="/#about">About</a>
+              <h3>{t('footer.exploreTitle')}</h3>
+              <a href="/#work">{t('nav.work')}</a>
+              <a href="/#about">{t('nav.about')}</a>
               <a href={contactHref} target="_blank" rel="noreferrer">
-                Contact
+                {t('nav.contact')}
               </a>
             </div>
 
             <div className="footer__col">
-              <h3>Elsewhere</h3>
+              <h3>{t('footer.elsewhereTitle')}</h3>
 
               <a
                 href="https://www.linkedin.com/in/ramon-camacho-rojas"
@@ -111,7 +112,7 @@ export default function Footer() {
 
         <div className="footer__bottom">
           <span>© {currentYear} WENREI DESIGN · Ramón Camacho</span>
-          <span>Designed &amp; built end to end.</span>
+          <span>{t('footer.copyright')}</span>
         </div>
       </div>
     </footer>

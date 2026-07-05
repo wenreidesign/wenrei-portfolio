@@ -3,6 +3,9 @@ import { useParams, Link, Navigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import { getCase, cases } from '../data/cases.js'
+import { es } from '../i18n/es.js'
+import { applyCase } from '../i18n/applyCase.js'
+import { useLanguage } from '../contexts/LanguageContext.jsx'
 
 const Arrow = ({ left }) => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style={left ? { transform: 'rotate(180deg)' } : null} aria-hidden="true">
@@ -38,12 +41,17 @@ function renderText(text) {
 
 export default function CaseStudy() {
   const { slug } = useParams()
-  const data = getCase(slug)
+  const { lang, t } = useLanguage()
 
-  if (!data) return <Navigate to="/404" replace />
+  const enData = getCase(slug)
+  if (!enData) return <Navigate to="/404" replace />
 
-  const idx = cases.findIndex((c) => c.slug === slug)
+  const data = lang === 'es' ? applyCase(slug, enData, es) : enData
+
+  const idx  = cases.findIndex((c) => c.slug === slug)
   const next = cases[(idx + 1) % cases.length]
+
+  const nextDisplay = lang === 'es' ? applyCase(next.slug, next, es) : next
 
   return (
     <motion.article
@@ -63,15 +71,15 @@ export default function CaseStudy() {
       </Helmet>
 
       <div className="container">
-        <Link to="/#work" className="case__back"><Arrow left /> Back to work</Link>
+        <Link to="/#work" className="case__back"><Arrow left /> {t('caseStudy.back')}</Link>
         <span className="case__client">{data.client}</span>
         <h1 className="display case__articleTitle">{data.articleTitle}</h1>
         <p className="lead case__intro">{data.intro}</p>
         <dl className="case__meta">
-          <div><dt>Role</dt><dd>{data.meta.role}</dd></div>
-          <div><dt>Team</dt><dd>{data.meta.team}</dd></div>
-          <div><dt>Timeline</dt><dd>{data.meta.timeline}</dd></div>
-          <div><dt>Scope</dt><dd>{data.meta.scope}</dd></div>
+          <div><dt>{t('caseStudy.metaRole')}</dt><dd>{data.meta.role}</dd></div>
+          <div><dt>{t('caseStudy.metaTeam')}</dt><dd>{data.meta.team}</dd></div>
+          <div><dt>{t('caseStudy.metaTimeline')}</dt><dd>{data.meta.timeline}</dd></div>
+          <div><dt>{t('caseStudy.metaScope')}</dt><dd>{data.meta.scope}</dd></div>
         </dl>
         <div className="case__hero-media">
           <img
@@ -150,7 +158,10 @@ export default function CaseStudy() {
           return (
             <div className="container" key={i}>
               <div className="case__before-after">
-                {[{ ...s.before, tag: 'Before' }, { ...s.after, tag: 'After' }].map((item, j) => (
+                {[
+                  { ...s.before, tag: t('caseStudy.beforeTag') },
+                  { ...s.after,  tag: t('caseStudy.afterTag') },
+                ].map((item, j) => (
                   <figure className="case__before-after-item" key={j}>
                     <span className="case__before-after-tag">{item.tag}</span>
                     <div className="case__figure-frame">
@@ -165,7 +176,6 @@ export default function CaseStudy() {
         }
 
         if (s.kind === 'figma-embed') {
-          // Use a specific title so screen readers announce the frame content (WCAG 4.1.2)
           const iframeTitle = s.label
             ? `Interactive prototype: ${s.label}`
             : 'Interactive prototype'
@@ -179,11 +189,7 @@ export default function CaseStudy() {
         }
 
         if (s.kind === 'video') {
-          // Videos are muted UI demos (no audio track) — WCAG 1.2.1 requires a text
-          // alternative for video-only prerecorded content. We use a visually hidden
-          // description + title on the video element itself for AT.
           const videoLabel = s.label || s.intro || 'Product design demo video'
-          const videoDesc  = s.intro  || s.label || null
           return (
             <div className="case__figma-embed" key={i}>
               {s.label && <span className="case__gallery-label">{s.label}</span>}
@@ -197,9 +203,8 @@ export default function CaseStudy() {
                 title={videoLabel}
                 aria-label={videoLabel}
               />
-              {/* Text alternative for AT when label/intro aren't already rendered */}
-              {!s.label && !s.intro && videoDesc && (
-                <p className="sr-only">{videoDesc}</p>
+              {!s.label && !s.intro && (
+                <p className="sr-only">{videoLabel}</p>
               )}
               {s.caption && <span className="case__gallery-caption">{s.caption}</span>}
             </div>
@@ -323,7 +328,7 @@ export default function CaseStudy() {
           <div className="container" key={i}>
             <section className="case__section">
               {s.heading && <h2>{s.heading}</h2>}
-              {s.body.map((p, j) => (
+              {s.body && s.body.map((p, j) => (
                 <p key={j}>{renderText(p)}</p>
               ))}
             </section>
@@ -333,7 +338,7 @@ export default function CaseStudy() {
 
       <div className="container">
         <div className="case__learned">
-          <h4>What I took away</h4>
+          <h4>{t('caseStudy.learnedTitle')}</h4>
           <p>{renderText(data.learned)}</p>
         </div>
         {data.conclusion && (
@@ -342,8 +347,10 @@ export default function CaseStudy() {
           </div>
         )}
         <div className="case__nav">
-          <Link to="/#work" className="btn btn--ghost"><Arrow left /> All work</Link>
-          <Link to={`/work/${next.slug}`} className="btn btn--primary" aria-label={`Next case: ${next.cardTitle}`}>Next case <Arrow /></Link>
+          <Link to="/#work" className="btn btn--ghost"><Arrow left /> {t('caseStudy.allWork')}</Link>
+          <Link to={`/work/${next.slug}`} className="btn btn--primary" aria-label={`${t('caseStudy.nextCase')}: ${nextDisplay.cardTitle}`}>
+            {t('caseStudy.nextCase')} <Arrow />
+          </Link>
         </div>
       </div>
 
