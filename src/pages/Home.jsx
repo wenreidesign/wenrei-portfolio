@@ -137,7 +137,7 @@ export default function Home() {
             </a>
 
             <a
-              href="/CV_ProductDesigner_RamonCamacho.pdf"
+              href={lang === 'es' ? '/CV_ProductDesigner_RamonCamacho_ES.pdf' : '/CV_ProductDesigner_RamonCamacho_EN.pdf'}
               target="_blank"
               rel="noreferrer"
               className="btn btn--ghost"
