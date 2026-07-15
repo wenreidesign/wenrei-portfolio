@@ -20,7 +20,7 @@ const Arrow = () => (
   </svg>
 )
 
-const contactEmail = 'wenreidesign@gmail.com'
+const contactEmail = 'ramoncamacho@wenreidesign.com'
 const contactSubject = encodeURIComponent('Portfolio contact - WENREI DESIGN')
 const contactHref = `https://mail.google.com/mail/?view=cm&fs=1&to=${contactEmail}&su=${contactSubject}`
 
